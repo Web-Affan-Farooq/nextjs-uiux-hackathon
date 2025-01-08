@@ -13,7 +13,7 @@ const Section_1 = ({name, description, price, image}: {name:string; image:string
                 <h1 className='font-bold text-[60px] leading-[66px]'>{name}</h1>
                 <br />
                 <div>
-                    <span className='p-2 bg-blue rounded-[60px] text-white font-bold text-[16px]'>{price}</span>
+                    <span className='px-4 py-2 bg-blue rounded-[60px] text-white font-bold text-[16px]'>{price}</span>
                 </div>
                 <br />
                 <p className='font-normal text-purple'>{description}</p>
