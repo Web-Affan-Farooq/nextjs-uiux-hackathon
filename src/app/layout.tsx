@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+
+//---------------> importing state for header
+import NavContextProvider from "@/context/navContext";
+
 // components
 import Header_1 from "@/components/Header/Header-1";
 import Header_2 from "@/components/Header/Header-2";
@@ -23,11 +27,13 @@ export default function RootLayout({
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
       </head>
       <body>
+        <NavContextProvider>
         <header>
           <Header_1/>
           <Header_2/>
           <Header_3/>
         </header>
+        </NavContextProvider>
         {children}
         <Footer/>
       </body>

@@ -1,11 +1,28 @@
-import React from 'react';
+"use client";
+import React, {useContext} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { navContext } from '@/context/navContext';
 
 const Header_2 = () => {
+
+  const [navStatus, setNavStatus] = useContext(navContext);
+
+  const handleNav = () => {
+    setNavStatus(!navStatus);
+    // console.log(navStatus);
+  };
+
   return (
     <div className='2xl:px-[300px] 2xl:py-[20px] xl:px-[200px] xl:py-[20px] lg:px-[150px] lg:py-[20px] md:px-[100px] md:py-[20px] sm:px-[50px] sm:py-[20px] max-sm:px-[40px] max-sm:py-[20px] flex flex-row flex-wrap justify-between items-center'>
-        <div>
+        <div className='flex flex-row flex-nowrap gap-3 justify-center items-center'>
+        <div className="max-md:block hidden cursor-pointer text-2xl" onClick={handleNav}>
+          {navStatus ? (
+            <i className="fa-solid fa-xmark"></i>
+          ) : (
+            <i className="fa-solid fa-bars"></i>
+          )}
+        </div>
         <Image src={"/images/logo.svg"} alt='Conforty' width={166} height={40} className='object-cover'/>
         </div>
 
