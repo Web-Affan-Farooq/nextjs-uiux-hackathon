@@ -1,0 +1,98 @@
+[
+    {
+        "id":"1",
+        "name":"Library Stool Chair",
+        "price":"$20",
+        "quantityAvailable":"189",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt erat enim. Lorem ipsum dolor sit amet, consectetur adipiscing",
+        "image":"/products/1.svg"
+    },
+    {
+        "id":"2",
+        "name":"Library Stool Chair",
+        "price":"$20",
+        "quantityAvailable":"120",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt erat enim. Lorem ipsum dolor sit amet, consectetur adipiscing",
+        "image":"/products/2.svg"
+    },
+    {
+        "id":"3",
+        "name":"Library Stool Chair",
+        "price":"$70",
+        "quantityAvailable":"200",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt erat enim. Lorem ipsum dolor sit amet, consectetur adipiscing",
+        "image":"/products/3.svg"
+    },
+    {
+        "id":"4",
+        "name":"Library Stool Chair",
+        "price":"$100",
+        "quantityAvailable":"200",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt erat enim. Lorem ipsum dolor sit amet, consectetur adipiscing",
+        "image":"/products/4.svg"
+    },
+    {
+        "id":"5",
+        "name":"Wing Chair",
+        "price":"$76",
+        "quantityAvailable":"193",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt erat enim. Lorem ipsum dolor sit amet, consectetur adipiscing",
+        "image":"/products/5.svg"
+    },
+    {
+        "id":"6",
+        "name":"Wooden Chair",
+        "price":"$120",
+        "quantityAvailable":"200",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt erat enim. Lorem ipsum dolor sit amet, consectetur adipiscing",
+        "image":"/products/6.svg"
+    },
+    {
+        "id":"7",
+        "name":"Desk Chair",
+        "price":"$140",
+        "quantityAvailable":"300",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt erat enim. Lorem ipsum dolor sit amet, consectetur adipiscing",
+        "image":"/products/7.svg"
+    },
+    {
+        "id":"8",
+        "name":"Foam Chair",
+        "price":"$120",
+        "quantityAvailable":"70",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt erat enim. Lorem ipsum dolor sit amet, consectetur adipiscing",
+        "image":"/products/8.svg"
+    },
+    {
+        "id":"9",
+        "name":"Library Stool Chair",
+        "price":"$120",
+        "quantityAvailable":"70",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt erat enim. Lorem ipsum dolor sit amet, consectetur adipiscing",
+        "image":"/products/9.svg"
+    },
+    {
+        "id":"10",
+        "name":"Long Sofa",
+        "price":"$1200",
+        "quantityAvailable":"30",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt erat enim. Lorem ipsum dolor sit amet, consectetur adipiscing",
+        "image":"/products/10.svg"
+    },
+    {
+        "id":"11",
+        "name":"Foam Rest Chair",
+        "price":"$500",
+        "quantityAvailable":"29",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt erat enim. Lorem ipsum dolor sit amet, consectetur adipiscing",
+        "image":"/products/11.svg"
+    },
+    {
+        "id":"12",
+        "name":"Black Chair",
+        "price":"$200",
+        "quantityAvailable":"9",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt erat enim. Lorem ipsum dolor sit amet, consectetur adipiscing",
+        "image":"/products/12.svg"
+    }
+]
