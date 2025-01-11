@@ -12,7 +12,7 @@ const Section_1 = () => {
                     Best Furniture Collection for your interior.
                 </h1>
                 <div>
-                <Button_large_green text={"Shop Now"} />
+                <Button_large_green text={"Shop Now"} link='/products'/>
                 </div>
 
             </div>

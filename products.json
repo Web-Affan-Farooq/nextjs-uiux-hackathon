@@ -8,7 +8,7 @@
         "quantity_available": 50,
         "short_description": "Sleek design, durable leather",
         "long_description": "Comfortable seating, easy to clean, perfect for modern dining rooms.",
-        "image": "/images/stock/1.jpg"
+        "image": "/stock/1.jpg"
     },
     {
         "id": 2,
@@ -19,7 +19,7 @@
         "quantity_available": 30,
         "short_description": "Stylish wood frame, upholstered seat",
         "long_description": "Classic design, versatile style, suitable for various dining spaces.",
-        "image": "/images/stock/2.jpg"
+        "image": "/stock/2.jpg"
     },
     {
         "id": 3,
@@ -30,7 +30,7 @@
         "quantity_available": 45,
         "short_description": "Unique metal frame, sturdy construction",
         "long_description": "Industrial aesthetic, durable and easy to maintain, adds a touch of edge.",
-        "image": "/images/stock/3.jpg"
+        "image": "/stock/3.jpg"
     },
     {
         "id": 4,
@@ -41,7 +41,7 @@
         "quantity_available": 25,
         "short_description": "Luxurious velvet, elegant design",
         "long_description": "Soft and comfortable, adds a touch of glamour to any room, perfect for reading.",
-        "image": "/images/stock/4.jpg"
+        "image": "/stock/4.jpg"
     },
     {
         "id": 5,
@@ -52,7 +52,7 @@
         "quantity_available": 20,
         "short_description": "Classic style, supportive wings",
         "long_description": "Comfortable and stylish, provides excellent head and neck support, timeless design.",
-        "image": "/images/stock/5.jpg"
+        "image": "/stock/5.jpg"
     },
     {
         "id": 6,
@@ -63,7 +63,7 @@
         "quantity_available": 35,
         "short_description": "Ergonomic design, adjustable height",
         "long_description": "Comfortable and supportive for long work hours, promotes good posture, stylish and professional.",
-        "image": "/images/stock/6.jpg"
+        "image": "/stock/6.jpg"
     },
     {
         "id": 7,
@@ -74,7 +74,7 @@
         "quantity_available": 40,
         "short_description": "Breathable mesh back, adjustable features",
         "long_description": "Keeps you cool and comfortable, promotes good airflow, ideal for hot climates.",
-        "image": "/images/stock/7.jpg"
+        "image": "/stock/7.jpg"
     },
     {
         "id": 8,
@@ -85,7 +85,7 @@
         "quantity_available": 55,
         "short_description": "Ergonomic design, high back support",
         "long_description": "Provides excellent comfort and support during long gaming sessions, adjustable features.",
-        "image": "/images/stock/8.jpg"
+        "image": "/stock/8.jpg"
     },
     {
         "id": 9,
@@ -96,7 +96,7 @@
         "quantity_available": 60,
         "short_description": "Stylish and versatile, perfect for bar areas",
         "long_description": "Comfortable seating at bar height, various styles available, adds a modern touch.",
-        "image": "/images/stock/9.jpg"
+        "image": "/stock/9.jpg"
     },
     {
         "id": 10,
@@ -107,7 +107,7 @@
         "quantity_available": 100,
         "short_description": "Portable and compact, easy to store",
         "long_description": "Ideal for guests and small spaces, easy to set up and put away, durable and lightweight.",
-        "image": "/images/stock/10.jpg"
+        "image": "/stock/10.jpg"
     },
     {
         "id": 11,
@@ -118,7 +118,7 @@
         "quantity_available": 15,
         "short_description": "Luxurious leather, durable and stylish",
         "long_description": "Comfortable and inviting, perfect for relaxing and entertaining, timeless design.",
-        "image": "/images/stock/11.jpg"
+        "image": "/stock/11.jpg"
     },
     {
         "id": 12,
@@ -129,7 +129,7 @@
         "quantity_available": 20,
         "short_description": "Comfortable and cozy, various fabric options",
         "long_description": "Perfect for any living room, easy to clean and maintain, comes in a variety of colors.",
-        "image": "/images/stock/12.jpg"
+        "image": "/stock/12.jpg"
     },
     {
         "id": 13,
@@ -140,7 +140,7 @@
         "quantity_available": 10,
         "short_description": "Modular design, customizable layout",
         "long_description": "Perfect for larger spaces, offers ample seating, creates a comfortable and inviting space.",
-        "image": "/images/stock/13.jpg"
+        "image": "/stock/13.jpg"
     },
     {
         "id": 14,
@@ -151,7 +151,7 @@
         "quantity_available": 18,
         "short_description": "Perfect for two, compact and cozy",
         "long_description": "Ideal for smaller spaces, comfortable and stylish, adds a touch of elegance.",
-        "image": "/images/stock/14.jpg"
+        "image": "/stock/14.jpg"
     },
     {
         "id": 15,
@@ -162,7 +162,7 @@
         "quantity_available": 25,
         "short_description": "Converts to bed, space-saving design",
         "long_description": "Versatile and functional, perfect for small apartments or guest rooms, comfortable seating and sleeping.",
-        "image": "/images/stock/15.jpg"
+        "image": "/stock/15.jpg"
     },
     {
         "id": 16,
@@ -173,7 +173,7 @@
         "quantity_available": 12,
         "short_description": "Adjustable back and footrest",
         "long_description": "Ultimate relaxation, perfect for watching TV or reading, comes in various styles.",
-        "image": "/images/stock/16.jpg"
+        "image": "/stock/16.jpg"
     },
     {
         "id": 17,
@@ -184,7 +184,7 @@
         "quantity_available": 8,
         "short_description": "Classic design, rolled arms",
         "long_description": "Elegant and timeless, adds a touch of sophistication to any room, luxurious and comfortable.",
-        "image": "/images/stock/17.jpg"
+        "image": "/stock/17.jpg"
     },
     {
         "id": 18,
@@ -195,7 +195,7 @@
         "quantity_available": 18,
         "short_description": "Sleek design, tapered legs",
         "long_description": "Stylish and timeless, perfect for modern interiors, comfortable and supportive.",
-        "image": "/images/stock/18.jpg"
+        "image": "/stock/18.jpg"
     },
     {
         "id": 19,
@@ -206,7 +206,7 @@
         "quantity_available": 15,
         "short_description": "Modern lines, clean design",
         "long_description": "Stylish and minimalist, perfect for contemporary homes, comfortable and inviting.",
-        "image": "/images/stock/19.jpg"
+        "image": "/stock/19.jpg"
     },
     {
         "id": 20,
@@ -217,7 +217,7 @@
         "quantity_available": 50,
         "short_description": "Comfortable and versatile",
         "long_description": "Perfect for floor seating, meditation, or reading, comes in various colors and patterns.",
-        "image": "/images/stock/20.jpg"
+        "image": "/stock/20.jpg"
     },
     {
         "id": 21,
@@ -228,7 +228,7 @@
         "quantity_available": 40,
         "short_description": "Relaxing and fun",
         "long_description": "Comfortable and adaptable, perfect for lounging and reading, comes in various sizes and colors.",
-        "image": "/images/stock/21.jpg"
+        "image": "/stock/21.jpg"
     },
     {
         "id": 22,
@@ -239,7 +239,7 @@
         "quantity_available": 30,
         "short_description": "Versatile footrest and storage",
         "long_description": "Adds extra seating and storage space, stylish and functional, complements any sofa.",
-        "image": "/images/stock/22.jpg"
+        "image": "/stock/22.jpg"
     },
     {
         "id": 23,
@@ -250,7 +250,7 @@
         "quantity_available": 45,
         "short_description": "Small and stylish",
         "long_description": "Perfect for extra seating or as a side table, adds a touch of bohemian flair.",
-        "image": "/images/stock/23.jpg"
+        "image": "/stock/23.jpg"
     },
     {
         "id": 24,
@@ -261,7 +261,7 @@
         "quantity_available": 20,
         "short_description": "Relaxing and unique",
         "long_description": "Perfect for indoor or outdoor use, creates a cozy and relaxing space, adds a touch of whimsy.",
-        "image": "/images/stock/24.jpg"
+        "image": "/stock/24.jpg"
     },
     {
         "id": 25,
@@ -272,7 +272,7 @@
         "quantity_available": 15,
         "short_description": "Nostalgic and fun",
         "long_description": "Perfect for indoor or outdoor use, creates a playful and relaxing atmosphere.",
-        "image": "/images/stock/25.jpg"
+        "image": "/stock/25.jpg"
     },
     {
         "id": 26,
@@ -283,7 +283,7 @@
         "quantity_available": 10,
         "short_description": "Luxurious and relaxing",
         "long_description": "Creates a cocoon-like experience, perfect for reading or simply unwinding, adds a touch of elegance.",
-        "image": "/images/stock/26.jpg"
+        "image": "/stock/26.jpg"
     },
     {
         "id": 27,
@@ -294,7 +294,7 @@
         "quantity_available": 25,
         "short_description": "Improves posture and balance",
         "long_description": "Engages core muscles, promotes active sitting, can help improve posture and focus.",
-        "image": "/images/stock/27.jpg"
+        "image": "/stock/27.jpg"
     },
     {
         "id": 28,
@@ -305,7 +305,7 @@
         "quantity_available": 25,
         "short_description": "Improves posture and balance",
         "long_description": "Engages core muscles, promotes active sitting, can help improve posture and focus.",
-        "image": "/images/stock/28.jpg"
+        "image": "/stock/28.jpg"
     },
     {
         "id": 29,
@@ -316,7 +316,7 @@
         "quantity_available": 25,
         "short_description": "Improves posture and balance",
         "long_description": "Engages core muscles, promotes active sitting, can help improve posture and focus.",
-        "image": "/images/stock/29.jpg"
+        "image": "/stock/29.jpg"
     },
     {
         "id": 30,
@@ -327,7 +327,7 @@
         "quantity_available": 25,
         "short_description": "Improves posture and balance",
         "longdescription": "Engages core muscles, promotes active sitting, can help improve posture and focus.",
-        "image": "/images/stock/30.jpg"
+        "image": "/stock/30.jpg"
     },
     {
         "id": 31,
@@ -338,7 +338,7 @@
         "quantity_available": 25,
         "short_description": "Improves posture and balance",
         "long_description": "Engages core muscles, promotes active sitting, can help improve posture and focus.",
-        "image": "/images/stock/31.jpg"
+        "image": "/stock/31.svg"
     },
     {
         "id": 32,
@@ -349,6 +349,6 @@
         "quantity_available": 25,
         "short_description": "Improves posture and balance",
         "long_description": "Engages core muscles, promotes active sitting, can help improve posture and focus.",
-        "image": "/images/stock/31.jpg"
+        "image": "/stock/32.svg"
     }
 ]

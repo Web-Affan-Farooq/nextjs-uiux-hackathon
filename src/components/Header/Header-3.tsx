@@ -33,28 +33,28 @@ const Header_3 = () => {
           Home
         </Link>
         <Link
-          href="/Cart"
+          href="/cart"
           className="hover:text-blue transition-all text-[14px] font-medium"
           onClick={closeNav} // Close menu on link click
         >
           Shop
         </Link>
         <Link
-          href="/Products"
+          href="/products"
           className="hover:text-blue transition-all text-[14px] font-medium"
           onClick={closeNav} // Close menu on link click
         >
           Products
         </Link>
         <Link
-          href="/Products"
+          href="/products"
           className="hover:text-blue transition-all text-[14px] font-medium"
           onClick={closeNav} // Close menu on link click
         >
           Pages
         </Link>
         <Link
-          href="/About"
+          href="/about"
           className="hover:text-blue transition-all text-[14px] font-medium"
           onClick={closeNav} // Close menu on link click
         >

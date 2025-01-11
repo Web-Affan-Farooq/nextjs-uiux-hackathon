@@ -1,17 +1,17 @@
 "use client";
 
-import React,{createContext, useState} from 'react';
+import React, {createContext, useState} from 'react';
+import { Iproducts } from '@/@types/Products';
 
-const cartContext = createContext<[any[], React.Dispatch<React.SetStateAction<any[]>>]>([[],() => {}]);
+export const CartContext = createContext<[Iproducts[], React.Dispatch<React.SetStateAction<Iproducts[]>>]>( [[], () => {}] );
 
 const CartContextProvider = ({children}:{children:React.ReactNode}) => {
-    const [cart, setcart] = useState<any[]>([]);  // create type for it
-
+    const [cart, setcart] = useState<Iproducts[]>([])
   return (
-    <cartContext.Provider value={[cart,setcart]}>
+    <CartContext.Provider value={[cart,setcart]}>
         {children}
-    </cartContext.Provider>
+    </CartContext.Provider>
   )
 }
 
-export default CartContextProvider
+export default CartContextProvider;

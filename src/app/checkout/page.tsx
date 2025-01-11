@@ -1,75 +1,97 @@
-import React from 'react'
+import React from 'react';
+import Image from 'next/image';
 
 const Checkout = () => {
-  return (
-    <main>
-        <article>
-            <section className='border-2 border-solid border-black'>
-                <form action="" className='border-2 border-solid border-black'>
-                    <fieldset>
-                    <legend className='text-[15px] text-gray-500 decoration-4 decoration-blue underline'>Customer information</legend>
+    return (
+        <main>
+            <article>
+                <br /><br /><br />
+                <section className='flex flex-row flex-wrap justify-center items-start'>
 
-                    <div className='px-5 py-1'>
-                    <label htmlFor="Enter your name" id='customer-name' className='text-[15px] text-gray-500'>Enter your name:</label>
-                    <br />
-                    <input type="text" name='customerName' id='customer-name' required placeholder='Your name' className='border-2 border-solid border-black rounded-md px-[20px] text-[15px] py-[5px]'/>
-                    </div>
+                    <Image src={"/images/checkout/checkout-banner.svg"} alt='banner' width={400} height={400} className='border-2 border-solid border-black w-[400px] h-[500px] max-md:h-[400px]'/>
 
-                    <div className='px-5 py-1'>
-                    <label htmlFor="Enter your name" id='customer-email' className='text-[15px] text-gray-500'>Your email:</label>
-                    <br />
-                    <input type="email" name='customerEmail' id='customer-email' required placeholder='abcd@gmail.com' className='border-2 border-solid border-black rounded-md px-[20px] text-[15px] py-[5px]'/>
-                    </div>
+                    <section className='border-2 border-solid border-black w-[500px] max-lg:w-[400px] max-md:w-[90vw]'>
+                        <form action="" className='p-3'>
+                            <h1 className='text-3xl font-bold'>Checkout</h1>
+                            <br />
+                            <fieldset>
+                                <legend className='text-[15px] text-white px-[20px] py-[6px] rounded-2xl bg-blue'>Customer information</legend>
+                                <div className='px-5 py-1 flex flex-col gap-3'>
+                                    <label htmlFor="Enter your name" id='customer-name' className='text-[15px] text-gray-500'>Enter your name:</label>
+                                    <div>
+                                    <input type="text" name='customerName' id='customer-name' required placeholder='Your name' className='rounded-md px-[20px] text-[15px] py-[10px] w-[310px] border-2 border-solid border-gray-300' />
+                                    </div>
+                                </div>
 
-                    <div className='px-5 py-1'>
-                    <label htmlFor="Enter your phonenumber" id='customer-phonenumber' className='text-[15px] text-gray-500'>Your phonenumber:</label>
-                    <br />
-                    <input type="tel" name='customerPhone' id='customer-phonenumber' required placeholder='0000-0000000' className='border-2 border-solid border-black rounded-md px-[20px] text-[15px] py-[5px]'/>
-                    </div>
-                    </fieldset>
+                                <div className='px-5 py-1 flex flex-col gap-3'>
+                                    <label htmlFor="Enter your name" id='customer-email' className='text-[15px] text-gray-500'>Your email:</label>
+                                    <div>
+                                    <input type="email" name='customerEmail' id='customer-email' required placeholder='abcd@gmail.com' className='border-2 border-solid border-gray-300 rounded-md px-[20px] text-[15px] py-[10px] w-[310px]' />
+                                    </div>
+                                </div>
 
-                    <fieldset>
-                    <legend>Shipment details</legend>
-                    <label htmlFor="Country" id='country'>Select country</label>
-                    <select name="country" id="country">
-                        <option value="Pakistan">Pakistan</option>
-                    </select>
+                                <div className='px-5 py-1 flex flex-col gap-3'>
+                                    <label htmlFor="Enter your phonenumber" id='customer-phonenumber' className='text-[15px] text-gray-500'>Your phonenumber:</label>
+                                    <div>
+                                    <input type="tel" name='customerPhone' id='customer-phonenumber' required placeholder='0000-0000000' className='border-2 border-solid border-gray-300 rounded-md px-[20px] text-[15px] py-[10px] w-[310px]' />
+                                    </div>
+                                </div>
+                            </fieldset>
 
-                    <label htmlFor="Country" id='country'>Select province</label>
-                    <select name="province" id="province">
-                        <option value="Sindh">Sindh</option>
-                    </select>
+                            <fieldset>
+                                <legend className='text-[15px] text-white px-[20px] py-[6px] rounded-2xl bg-blue'>Shipment details</legend>
+                                <div className='px-5 py-1 flex flex-col gap-3'>
+                                <label htmlFor="Country" id='country' className='text-[15px] text-gray-500'>Select country</label>
+                                <select name="country" id="country" className='border-2 border-solid border-gray-300 rounded-md px-[20px] text-[15px] py-[10px] w-[310px]'>
+                                    <option value="Pakistan">Pakistan</option>
+                                </select>
+                                </div>
 
-                    <label htmlFor="Country" id='country'>Select city</label>
-                    <select name="city" id="city">
-                        <option value="Karachi">Karachi</option>
-                    </select>
+                                <div className='px-5 py-1 flex flex-col gap-3'>
+                                <label htmlFor="Country" id='country' className='text-[15px] text-gray-500'>Select province</label>
+                                <select name="province" id="province" className='border-2 border-solid border-gray-300 rounded-md px-[20px] text-[15px] py-[10px] w-[310px]'>
+                                    <option value="Sindh">Sindh</option>
+                                </select>
+                                </div>
+                                <div className='px-5 py-1 flex flex-col gap-3'>
+                                <label htmlFor="Country" id='country' className='text-[15px] text-gray-500'>Select city</label>
+                                <select name="city" id="city" className='border-2 border-solid border-gray-300 rounded-md px-[20px] text-[15px] py-[10px] w-[310px]'>
+                                    <option value="Karachi">Karachi</option>
+                                </select>
+                                </div>
 
-                    <label htmlFor="Country" id='country'>Select city</label>
-                    <input type="text" name='postalCode' id='postal-code' placeholder='Your postal code' />
-                    </fieldset>
+                                <div className='px-5 py-1 flex flex-col gap-3'>
+                                <label htmlFor="Country" id='country' className='text-[15px] text-gray-500'>Enter postal code</label>
+                                <input type="text" name='postalCode' id='postal-code' placeholder='Your postal code' className='border-2 border-solid border-gray-300 rounded-md px-[20px] text-[15px] py-[10px] w-[310px]'/>
+                                </div>
+                            </fieldset>
 
-                    <fieldset>
-                        <legend>Payment credentials</legend>
+                            <fieldset>
+                                <legend className='text-[15px] text-white px-[20px] py-[6px] rounded-2xl bg-blue'>Payment credentials</legend>
 
-                        <div className='px-5 py-1'>
-                    <label htmlFor="card holder name" id='card-holder-name' className='text-[15px] text-gray-500'>Enter your name:</label>
-                    <br />
-                    <input type="text" name='cardHolderName' id='card-holder-name' required placeholder="Card holder's name" className='border-2 border-solid border-black rounded-md px-[20px] text-[15px] py-[5px]'/>
-                    </div>
+                                <div className='px-5 py-1 flex flex-col gap-3'>
+                                    <label htmlFor="card holder name" id='card-holder-name' className='text-[15px] text-gray-500'>Enter your name:</label>
+                                    <div>
+                                    <input type="text" name='cardHolderName' id='card-holder-name' required placeholder="Card holder's name" className='border-2 border-solid border-gray-300 rounded-md px-[20px] text-[15px] py-[10px] w-[310px]' />
+                                    </div>
+                                </div>
 
-                        <div className='px-5 py-1'>
-                    <label htmlFor="Enter account number" id='account-number' className='text-[15px] text-gray-500'>Account number:</label>
-                    <br />
-                    <input type="text" name='accountNumber' id='account-number' required placeholder="xxx-xxx-xxx" className='border-2 border-solid border-black rounded-md px-[20px] text-[15px] py-[5px]'/>
-                    </div>
+                                <div className='px-5 py-1 flex flex-col gap-3'>
+                                    <label htmlFor="Enter account number" id='account-number' className='text-[15px] text-gray-500'>Account number:</label>
+                                    <div>
+                                    <input type="text" name='accountNumber' id='account-number' required placeholder="xxx-xxx-xxx" className='border-2 border-solid border-gray-300 rounded-md px-[20px] text-[15px] py-[10px] w-[310px]' />
+                                    </div>
+                                </div>
 
-                                       </fieldset>
-                </form>
-            </section>
-        </article>
-    </main>
-  )
+                            </fieldset>
+                        </form>
+                    </section>
+
+                </section>
+                <br /><br /><br />
+            </article>
+        </main>
+    )
 }
 
 export default Checkout;
