@@ -11,8 +11,6 @@ This is the project I've created for UI ux hackathon organized by Sir Ameen Alam
 4. Implement like product functionality
 5. Create page for create account (optional)
 6. Create page for login (optional)
-3. Implement add to cart functionality
-integrate react hot toast
 
 
 Create this
