@@ -23,7 +23,7 @@ const Product = () => {
           }
       }
       getData();
-  },[]);  
+  },[path]);  
 
   return (
     <div>

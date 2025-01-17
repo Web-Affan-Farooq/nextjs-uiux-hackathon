@@ -1,6 +1,6 @@
 "use client";
 
-import React ,{useContext, useEffect} from "react";
+import React ,{useContext} from "react";
 import toast, { Toaster } from 'react-hot-toast';
 import Image from "next/image";
 import { CartContext } from "@/context/CartContext";
@@ -47,9 +47,9 @@ const Card = ({ image, title, id, description }: Card) => {
                     <span className='text-[15px] leading-[20px] font-normal text-black'>Size: 1</span>
                     <span className='text-[15px] leading-[20px] font-normal text-black'>Quantity: 1</span>
                 </div>
-                <div className='flex flex-row flex-nowrap justify-evenly items-center gap-2 border-2 border-solid border-black h-[30px]'>
-                    <Image src={"/icons/heart.svg"} alt='heart' width={17} height={17} className='object-cover' onClick={handleAddToWishlist}/>
-                    <Image src={"/icons/delete.svg"} alt='heart' width={17} height={17} className='object-cover' onClick={() => {
+                <div className='flex flex-row flex-nowrap justify-evenly items-center gap-4 h-[30px]'>
+                    <Image src={"/icons/heart.svg"} alt='heart' width={16} height={16} className='object-cover' onClick={handleAddToWishlist}/>
+                    <Image src={"/icons/delete.svg"} alt='heart' width={16} height={16} className='object-cover' onClick={() => {
                                 handleRemoveFromCart(id);
                     }}/>
                 </div>
