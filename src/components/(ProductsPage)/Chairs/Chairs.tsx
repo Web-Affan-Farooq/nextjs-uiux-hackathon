@@ -13,16 +13,14 @@ useEffect(() => {
             const response = await fetch("/api/get-products");
             const data = await response.json();
             setproducts(data.data)
+            // console.log(data.data[0]);
         }
         catch(err) {
             console.error(err);
         }
     }
-    getData();
-    
+    getData();   
 },[]);
-
-
 /*
     id: number;
     image: string;
@@ -34,8 +32,6 @@ useEffect(() => {
     ratings_in_count: number;
     short_description: string;
  */
-
-
     return (
         <section className=''>
             <div className='flex flex-row py-[40px] flex-nowrap justify-between 2xl:px-[300px] xl:px-[100px] lg:px-[100px] md:px-[50px] sm:px-[50px] max-sm:px-[50px] items-center'>

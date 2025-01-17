@@ -20,7 +20,7 @@ const Card = ({ image, name, price, link, allowResponsiveness }: Card) => {
                     <div className='flex flex-col flex-nowrap gap-2 justify-start items-start'>
                         <h1 className='leading-[12.8px] text-[16px] font-semibold group-hover:text-blue transition-all max-sm:leading-5'>
                             {name}</h1>
-                        <span className='text-purple text-[18px] font-bold'>{price}</span>
+                        <span className='text-purple text-[18px] font-bold'>${price}</span>
                     </div>
                     <div>
                         <Link href={"/products/" + link}><Button_cart_blue /></Link>
@@ -38,7 +38,7 @@ const Card = ({ image, name, price, link, allowResponsiveness }: Card) => {
                     <div className='flex flex-col flex-nowrap gap-2 justify-start items-start'>
                         <h1 className='leading-[12.8px] text-[16px] font-semibold group-hover:text-blue transition-all'>
                             {name}</h1>
-                        <span className='text-purple text-[18px] font-bold'>{price}</span>
+                        <span className='text-purple text-[18px] font-bold'>${price}</span>
                     </div>
                     <div>
                         <Link href={"/products/" + link}><Button_cart_blue /></Link>

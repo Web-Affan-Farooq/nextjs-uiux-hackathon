@@ -15,7 +15,7 @@ const Main_section = () => {
                 <div className='flex flex-col flex-nowrap gap-4'>
                     <h1 className='text-[30px] font-bold leading-[33px] text-black mx-[30px]'>Your Bag</h1>
                     <br /><br />
-                    <div className='flex flex-col flex-nowrap justify-center items-center text-[20px] font-bold'>
+                    <div className='flex flex-col flex-nowrap justify-center items-center text-[20px] font-bold text-gray-500'>
                         No product found in your cart
                     </div>
                     <br />
