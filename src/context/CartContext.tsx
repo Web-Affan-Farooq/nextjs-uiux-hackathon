@@ -1,12 +1,12 @@
 "use client";
 
 import React, {createContext, useState} from 'react';
-import { Iproducts } from '@/@types/Products';
+import { Product } from '@/@types/Products';
 
-export const CartContext = createContext<[Iproducts[], React.Dispatch<React.SetStateAction<Iproducts[]>>]>( [[], () => {}] );
+export const CartContext = createContext<[Product[], React.Dispatch<React.SetStateAction<Product[]>>]>( [[], () => {}] );
 
 const CartContextProvider = ({children}:{children:React.ReactNode}) => {
-    const [cart, setcart] = useState<Iproducts[]>([])
+    const [cart, setcart] = useState<Product[]>([])
   return (
     <CartContext.Provider value={[cart,setcart]}>
         {children}

@@ -1,12 +1,12 @@
 "use client";
 
 import React, {createContext, useState} from 'react';
-import { Iproducts } from '@/@types/Products';
+import { Product } from '@/@types/Products';
 
-export const WishListContext = createContext<[Iproducts[], React.Dispatch<React.SetStateAction<Iproducts[]>>]>( [[], () => {}] );
+export const WishListContext = createContext<[Product[], React.Dispatch<React.SetStateAction<Product[]>>]>( [[], () => {}] );
 
 const WishlistContextProvider = ({children}:{children:React.ReactNode}) => {
-    const [wishList, setwishList] = useState<Iproducts[]>([]);
+    const [wishList, setwishList] = useState<Product[]>([]);
   return (
     <WishListContext.Provider value={[wishList,setwishList]}>
         {children}

@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import Button_large_green from '@/components/Buttons/Button-large-green';
 
 const Section_1 = () => {
     return (
@@ -49,7 +48,7 @@ const Section_1 = () => {
 
                     <div className='w-[393px]'>
                         <label htmlFor="Your name" className='text-black font-bold text-left' id='name'>Your Name</label><br />
-                        <input type="text" name='name' id='name' placeholder='abc' className='w-fullpx-[20px] py-[10px] rounded-md' required />
+                        <input type="text" name='name' id='name' placeholder='abc' className='w-full px-[20px] py-[10px] rounded-md' required />
                     </div>
 
                     <div className=' w-[393px]'>

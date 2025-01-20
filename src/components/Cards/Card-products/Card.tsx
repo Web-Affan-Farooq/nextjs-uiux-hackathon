@@ -6,28 +6,38 @@ import Link from 'next/link';
 interface Card {
     image: string;
     name: string;
-    price: string;
-    link: number;
+    price: number;
+    link: string;
     allowResponsiveness?: boolean;
 }
 const Card = ({ image, name, price, link, allowResponsiveness }: Card) => {
     if (allowResponsiveness) {
+
         return (
             <div className='group shadow-lg rounded-md w-[300px] px-[10px] py-[5px] whitespace-normal max-sm:w-[95vw] max-sm:flex max-sm:flex-row max-sm:flex-nowrap max-sm:gap-5'>
                 <Image src={image} alt='furniture image' width={312} height={312} className='object-cover rounded-md w-[400px] h-auto max-sm:w-[120px]' />
 
                 <div className='flex flex-row flex-nowrap justify-between items-center p-2 max-sm:flex-col max-sm:items-start max-sm:justify-center'>
                     <div className='flex flex-col flex-nowrap gap-2 justify-start items-start'>
-                        <h1 className='leading-[12.8px] text-[16px] font-semibold group-hover:text-blue transition-all max-sm:leading-5'>
+                    <div className='w-[200px]'>
+                        <h1 className='leading-[20px] text-[16px] font-semibold group-hover:text-blue transition-all'>
                             {name}</h1>
-                        <span className='text-purple text-[18px] font-bold'>${price}</span>
+                        </div>
+                        {/* <span className='text-purple text-[18px] font-bold'>${price}</span> */}
                     </div>
                     <div>
-                        <Link href={"/products/" + link}><Button_cart_blue /></Link>
+                        <Link href={"/products/" + link}><Button_cart_blue className='max-md:hidden'/></Link>
                     </div>
                 </div>
             </div>
         )
+        // return (
+        //     <div className='border-2 border-solid border-black w-[150px] flex flex-col flex-nowrap justify-center items-center text-center'>
+        //         <Image src={image} alt={name} width={120} height={120} className='w-[100px] h-[100px]'/>
+        //         <h1 className='leading-[12.8px] text-[15px] font-semibold group-hover:text-blue transition-all max-sm:leading-5'>
+        //         {name}</h1>
+        //     </div>
+        // )
     }
     else {
         return (
@@ -36,8 +46,10 @@ const Card = ({ image, name, price, link, allowResponsiveness }: Card) => {
 
                 <div className='flex flex-row flex-nowrap justify-between items-center p-2'>
                     <div className='flex flex-col flex-nowrap gap-2 justify-start items-start'>
+                        <div className='w-[150px]'>
                         <h1 className='leading-[12.8px] text-[16px] font-semibold group-hover:text-blue transition-all'>
                             {name}</h1>
+                        </div>
                         <span className='text-purple text-[18px] font-bold'>${price}</span>
                     </div>
                     <div>

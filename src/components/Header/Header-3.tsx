@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import { navContext } from "@/context/navContext";
 
@@ -33,13 +33,6 @@ const Header_3 = () => {
           Home
         </Link>
         <Link
-          href="/cart"
-          className="hover:text-blue transition-all text-[14px] font-medium"
-          onClick={closeNav} // Close menu on link click
-        >
-          Shop
-        </Link>
-        <Link
           href="/products"
           className="hover:text-blue transition-all text-[14px] font-medium"
           onClick={closeNav} // Close menu on link click
@@ -47,11 +40,11 @@ const Header_3 = () => {
           Products
         </Link>
         <Link
-          href="/products"
+          href="/contact"
           className="hover:text-blue transition-all text-[14px] font-medium"
           onClick={closeNav} // Close menu on link click
         >
-          Pages
+          Contact
         </Link>
         <Link
           href="/about"
@@ -60,6 +53,7 @@ const Header_3 = () => {
         >
           About
         </Link>
+
       </div>
 
       {/* Contact and Toggle */}

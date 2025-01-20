@@ -2,11 +2,13 @@ import React from 'react';
 import Chairs from '@/components/(ProductsPage)/Chairs/Chairs';
 import Sofas from '@/components/(ProductsPage)/Sofas/Sofas';
 
+
 const Products = () => {
   return (
     <div>
-      <Chairs/>
-      <Sofas/>
+
+      <Chairs />
+      <Sofas />
       {/* <Section_1/> */}
       {/* <br /><br />
       <Section_2/>

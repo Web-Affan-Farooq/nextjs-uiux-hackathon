@@ -350,5 +350,73 @@
         "short_description": "Improves posture and balance",
         "long_description": "Engages core muscles, promotes active sitting, can help improve posture and focus.",
         "image": "/stock/32.svg"
+    },
+    {
+        "id":33,
+        "product_name":"Sleek Spin",
+        "price":34,
+        "rating":4.3,
+        "ratingsInCount":88,
+        "Long_description":"      Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus quia nesciunt consequuntur enim accusamus vitae laudantium in? Ipsum quam, a, odit optio ut assumenda iure non perspiciatis voluptatibus sit dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores ipsa iste odio totam suscipit, placeat aperiam rem repellendus, aliquid ab odit aut dicta illo ipsum ut. Quaerat cupiditate doloribus officia!",
+        "short_description":"totam suscipit, placeat aperiam rem repellendus, aliquid ab odit aut dicta illo ipsum ut. Quaerat cupiditate doloribus officia!",
+        "quantityAvailable":50,
+        "image":"/stock/33.jpg"
+    },
+    {
+        "id":34,
+        "product_name":"Citrus Edge",
+                "price":20,
+                        "rating":4.3,
+        "ratingsInCount":88,
+        "Long_description":"      Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus quia nesciunt consequuntur enim accusamus vitae laudantium in? Ipsum quam, a, odit optio ut assumenda iure non perspiciatis voluptatibus sit dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores ipsa iste odio totam suscipit, placeat aperiam rem repellendus, aliquid ab odit aut dicta illo ipsum ut. Quaerat cupiditate doloribus officia!",
+        "short_description":"totam suscipit, placeat aperiam rem repellendus, aliquid ab odit aut dicta illo ipsum ut. Quaerat cupiditate doloribus officia!",
+                "quantityAvailable":50,
+        "image":"/stock/34.jpg"
+    },
+    {
+        "id":35,
+        "product_name":"Rose Luxe Chair",
+                "price":30,
+                        "rating":4.3,
+        "ratingsInCount":88,
+        "Long_description":"      Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus quia nesciunt consequuntur enim accusamus vitae laudantium in? Ipsum quam, a, odit optio ut assumenda iure non perspiciatis voluptatibus sit dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores ipsa iste odio totam suscipit, placeat aperiam rem repellendus, aliquid ab odit aut dicta illo ipsum ut. Quaerat cupiditate doloribus officia!",
+        "short_description":"totam suscipit, placeat aperiam rem repellendus, aliquid ab odit aut dicta illo ipsum ut. Quaerat cupiditate doloribus officia!",
+                "quantityAvailable":50,
+        "image":"/stock/35.jpg"
+
+    },
+    {
+        "id":36,
+        "product_name":"Modren Cozy",
+                "price":44,
+                        "rating":4.3,
+        "ratingsInCount":88,
+        "Long_description":"      Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus quia nesciunt consequuntur enim accusamus vitae laudantium in? Ipsum quam, a, odit optio ut assumenda iure non perspiciatis voluptatibus sit dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores ipsa iste odio totam suscipit, placeat aperiam rem repellendus, aliquid ab odit aut dicta illo ipsum ut. Quaerat cupiditate doloribus officia!",
+        "short_description":"totam suscipit, placeat aperiam rem repellendus, aliquid ab odit aut dicta illo ipsum ut. Quaerat cupiditate doloribus officia!",
+                "quantityAvailable":50,
+        "image":"/stock/36.jpg"
+
+    },
+    {
+        "id":39,
+        "product_name":"Gray Elegance",
+                "price":40,
+                        "rating":4.3,
+        "ratingsInCount":88,
+        "Long_description":"      Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus quia nesciunt consequuntur enim accusamus vitae laudantium in? Ipsum quam, a, odit optio ut assumenda iure non perspiciatis voluptatibus sit dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores ipsa iste odio totam suscipit, placeat aperiam rem repellendus, aliquid ab odit aut dicta illo ipsum ut. Quaerat cupiditate doloribus officia!",
+        "short_description":"totam suscipit, placeat aperiam rem repellendus, aliquid ab odit aut dicta illo ipsum ut. Quaerat cupiditate doloribus officia!",
+                "quantityAvailable":50,
+        "image":"/stock/39.jpg"
+    },
+    {
+        "id":40,
+        "product_name":"Ivory Charm",
+                "price":100,
+                        "rating":4.3,
+        "ratingsInCount":88,
+        "Long_description":"      Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus quia nesciunt consequuntur enim accusamus vitae laudantium in? Ipsum quam, a, odit optio ut assumenda iure non perspiciatis voluptatibus sit dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores ipsa iste odio totam suscipit, placeat aperiam rem repellendus, aliquid ab odit aut dicta illo ipsum ut. Quaerat cupiditate doloribus officia!",
+        "short_description":"totam suscipit, placeat aperiam rem repellendus, aliquid ab odit aut dicta illo ipsum ut. Quaerat cupiditate doloribus officia!",
+                "quantityAvailable":50,
+        "image":"/stock/40.jpg"
     }
 ]

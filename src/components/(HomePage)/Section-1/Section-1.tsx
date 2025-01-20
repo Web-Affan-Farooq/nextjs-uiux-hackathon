@@ -4,9 +4,9 @@ import Button_large_green from '../../Buttons/Button-large-green';
 
 const Section_1 = () => {
     return (
-        <section className='flex flex-row flex-wrap justify-evenly items-center 2xl:gap-0 2xl:justify-evenly xl:justify-evenly gap-7 lg:justify-center lg:gap-14 md:gap-5 md:justify-center '>{/*xl:justify-center xl:gap-2 md:bg-purple lg:justify-center lg:gap-3 */}
+        <section className='flex flex-row flex-wrap justify-evenly items-center 2xl:gap-0 2xl:justify-evenly xl:justify-evenly gap-7 lg:justify-center lg:gap-14 md:gap-5 md:justify-center'>{/*xl:justify-center xl:gap-2 md:bg-purple lg:justify-center lg:gap-3 */}
             {/* child-1 */}
-            <div className=' 2xl:w-[557px] grid grid-row-3 grid-cols-1 gap-9 lg:w-[450px] md:w-[400px] sm:p-10 max-sm:p-7 max-md:p-2'>{/* md:w-[450px] */}
+            <div className=' 2xl:w-[570px] xl:w-[570px] grid grid-row-3 grid-cols-1 gap-9 lg:w-[570px] md:w-[430px] sm:p-10 max-sm:p-7 max-md:p-2'>{/* md:w-[450px] */}
                 <span className='text-purple text-[14px] font-normal leading-[14px] tracking-[12%]'>WELCOME TO CHAIRY</span>
                 <h1 className='font-bold text-[60px] leading-[66px] max-md:text-[48px] max-md:leading-[50px]'>
                     Best Furniture Collection for your interior.

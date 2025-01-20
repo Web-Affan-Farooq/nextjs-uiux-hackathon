@@ -4,20 +4,20 @@ import React ,{useContext} from "react";
 import toast, { Toaster } from 'react-hot-toast';
 import Image from "next/image";
 import { CartContext } from "@/context/CartContext";
-import { Iproducts } from "@/@types/Products";
+import { Product } from "@/@types/Products";
 
 interface Card {
     image: string;
     title: string;
     description:string;
-    id: number;
+    id: string;
 }
 
 const Card = ({ image, title, id, description }: Card) => {
     const [cart, setCart] = useContext(CartContext);
 
-    const handleRemoveFromCart = (productId:number) => {
-        const requiredIndex = cart.findIndex((product:Iproducts) => product.id === productId);
+    const handleRemoveFromCart = (productId:string) => {
+        const requiredIndex = cart.findIndex((product:Product) => product._id === productId);
         cart.splice(requiredIndex, 1);
         setCart([...cart]);
         console.log(`Product deleted from cart`);

@@ -1,40 +1,60 @@
-"use client";
+// "use client";
 
-import React ,{useEffect, useState}from 'react';
+import React from 'react';
 import Card from '@/components/Cards/Card-products/Card';
-import { Iproducts } from '@/@types/Products';
+import { defineQuery } from 'next-sanity';
+import sanityClient from '@/lib/sanity';
+import { Product } from '@/@types/Products';
 
-const Sofas =  () => {
-const [products, setproducts] = useState<Iproducts[]>();
+const Sofas = async () => {
+// const [products, setproducts] = useState<Iproducts[]>();
 
-useEffect(() => {
-    const getData = async () => {
-        try {
-            const response = await fetch("/api/get-products");
-            const data = await response.json();
-            setproducts(data.data)
-        }
-        catch(err) {
-            console.error(err);
-        }
-    }
-    getData();
+// useEffect(() => {
+//     const getData = async () => {
+//         try {
+//             const response = await fetch("/api/get-products");
+//             const data = await response.json();
+//             setproducts(data.data)
+//         }
+//         catch(err) {
+//             console.error(err);
+//         }
+//     }
+//     getData();
     
-},[]);
+// },[]);
 
+const querry = defineQuery(
+  `
+  *[_type == "product" && category == "Sofas"] {
+  _id,
+  image {
+    asset -> {
+      url,
+      _id,
+    }
+  },
+  productName,
+  shortDescription,
+  longDescription[]{
+    style,
+    children[] {
+      text,
+    }
+  },
+  category,  
+  price,
+  discount,
+  ratings,
+  ratingsInCount,
+  weight,
+  quantityAvailable,
+  }
+      `
+);
 
-/*
-    id: number;
-    image: string;
-    long_description: string;
-    price: number;
-    product_name: string;
-    quantity_available: number;
-    ratings: number;
-    ratings_in_count: number;
-    short_description: string;
- */
-
+  const response = await sanityClient.fetch(querry);
+  const data = await response;
 
     return (
         <section className=''>
@@ -44,9 +64,9 @@ useEffect(() => {
             <br />
             <div className='flex flex-row flex-wrap gap-7 justify-center items-center w-[80vw] m-auto'>
 
-                {products?.map((product:Iproducts) => {
+                {data.map((product:Product) => {
                     return (
-                        <Card image={product.image} name={product.product_name} price={String(product.price)} link={product.id} key={product.id} allowResponsiveness={true}/>
+                        <Card image={product.image.asset.url} name={product.productName} price={product.price} link={product._id} key={product._id} allowResponsiveness={true}/>
                     )
                 })}
             </div>

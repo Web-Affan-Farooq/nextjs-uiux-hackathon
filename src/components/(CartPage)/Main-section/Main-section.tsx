@@ -3,8 +3,8 @@
 import React, {useContext} from 'react';
 import Card from '@/components/Cards/Card-Cartpage/Card';
 import { CartContext } from '@/context/CartContext';
-import { Iproducts } from '@/@types/Products';
 import Button_large_green from '@/components/Buttons/Button-large-green';
+import { Product } from '@/@types/Products';
 
 const Main_section = () => {
         const [cart] = useContext(CartContext);
@@ -36,8 +36,8 @@ const Main_section = () => {
                             <br /><br />
                             <div className='flex flex-col flex-nowrap justify-center items-center gap-1'>
                             {
-                                    cart.map((cartProduct:Iproducts, index:number) => {
-                                        return  <Card image={cartProduct.image} title={cartProduct.product_name} description={cartProduct.short_description} id={cartProduct.id} key={index}/>
+                                    cart.map((cartProduct:Product, index:number) => {
+                                        return  <Card image={cartProduct.image.asset.url} title={cartProduct.productName} description={cartProduct.shortDescription} id={cartProduct._id} key={index}/>
                                     })
                             }
                             </div>
