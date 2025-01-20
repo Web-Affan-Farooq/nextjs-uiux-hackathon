@@ -1,6 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import Button_cart_blue from '@/components/Buttons/Button-cart-blue';
+import Green_label from "@/components/Labels/Green-label";
+
 import Link from 'next/link';
 
 interface Card {

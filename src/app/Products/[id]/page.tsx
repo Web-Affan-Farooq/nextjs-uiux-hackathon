@@ -37,7 +37,7 @@ quantityAvailable,
     `
   )
   const response = await sanityClient.fetch(querry);
-  const data = await response;
+  const data:Product[] = await response;
 
   // const [product, setproduct] = useState<Iproducts>();
 
@@ -61,7 +61,7 @@ quantityAvailable,
       <br /><br />
       <Section_1 data={data[0]}/>
       <br /><br />
-      {/* <Section_2/> */}
+      <Section_2/>
       <br /><br /><br /><br />
     </div>
   )

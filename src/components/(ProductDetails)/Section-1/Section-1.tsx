@@ -32,7 +32,7 @@ const Section_1 = ({data}: {data:Product}) => {
                 <h1 className='font-bold text-[60px] leading-[66px] max-md:text-[40px] max-md:leading-[40px]'>{data.productName}</h1>
                 <br />
                 <div>
-                    <span className='px-4 py-2 bg-blue rounded-[60px] text-white font-bold text-[16px]'>$ {data.price}</span>
+                    <span className='px-4 py-2 bg-blue rounded-[60px] text-white font-bold text-[16px]'>$ {data.price} USD</span>
                 </div>
                 <br />
                 <p className='font-normal text-purple'>{data.longDescription[0].children[0].text}</p>
