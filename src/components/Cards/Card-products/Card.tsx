@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import Button_cart_blue from '@/components/Buttons/Button-cart-blue';
-import Green_label from "@/components/Labels/Green-label";
+import { Button } from '@/components/ui/button';
 
 import Link from 'next/link';
 
@@ -28,18 +27,13 @@ const Card = ({ image, name, price, link, allowResponsiveness }: Card) => {
                         {/* <span className='text-purple text-[18px] font-bold'>${price}</span> */}
                     </div>
                     <div>
-                        <Link href={"/products/" + link}><Button_cart_blue className='max-md:hidden'/></Link>
+                        <Link href={"/products/" + link}>
+                        <Button className='max-md:hidden bg-blue px-[10] py-[10] hover:bg-purple transition-all'><Image src={"/icons/cart.svg"} alt='cart' width={20} height={20}/></Button>
+                        </Link>
                     </div>
                 </div>
             </div>
         )
-        // return (
-        //     <div className='border-2 border-solid border-black w-[150px] flex flex-col flex-nowrap justify-center items-center text-center'>
-        //         <Image src={image} alt={name} width={120} height={120} className='w-[100px] h-[100px]'/>
-        //         <h1 className='leading-[12.8px] text-[15px] font-semibold group-hover:text-blue transition-all max-sm:leading-5'>
-        //         {name}</h1>
-        //     </div>
-        // )
     }
     else {
         return (
@@ -55,7 +49,9 @@ const Card = ({ image, name, price, link, allowResponsiveness }: Card) => {
                         <span className='text-purple text-[18px] font-bold'>${price}</span>
                     </div>
                     <div>
-                        <Link href={"/products/" + link}><Button_cart_blue /></Link>
+                        <Link href={"/products/" + link}>
+                        <Button className='max-md:hidden bg-blue px-[10] py-[10] hover:bg-purple transition-all'><Image src={"/icons/cart.svg"} alt='cart' width={20} height={20}/></Button>
+                        </Link>
                     </div>
                 </div>
             </div>

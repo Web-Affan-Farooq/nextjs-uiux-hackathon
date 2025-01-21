@@ -1,8 +1,16 @@
 ## Hackathon UI-UX Project "Comforty":
 
+<h1>Hackathons :</h1>
 <ol>
-<li><a href="#about">About this project</a></li>
-<li><a href="#pages">Pages in this project</a></li>
+<li><a href="./guides/Hackathon Project Documentation.pdf">Day-1 documentation</a></li>
+<li><a href="#p">day-2 technical planning </a></li>
+<li><a href="#consider">day-3 planning technical planning </a></li>
+<li><a href="#source">day-4 dynamic components</a></li>
+<li><a href="./guides/day-5.md">day-5 Testing</a></li>
+<li><a href="./guides/day-6.md">day-6 Staging enviroment</a></li>
+
+
+<h1>Documentation:</h1>
 <li><a href="#consider">Considerations and ammendements:</a></li>
 <li><a href="#categories">Categories:</a></li>
 <li><a href="#source">Overview Of Source Code:</a></li>
@@ -108,6 +116,11 @@ so that it loads my enviroment variables globally in vite project.
             </tr>   
              <tr>
                 <td style="padding:10px 20px">8. </td>
+                <td style="padding:10px 20px">/wishlist</td>
+                <td style="padding:10px 20px">Page showing the products in wishlist</td>
+            </tr>   
+             <tr>
+                <td style="padding:10px 20px">9. </td>
                 <td style="padding:10px 20px">/FAQs</td>
                 <td style="padding:10px 20px">Cnotains basic components for FAQs</td>
             </tr>   
@@ -195,7 +208,6 @@ so that it loads my enviroment variables globally in vite project.
                 <li>product name</li>
                 <li>price (in USDT)</li>
                 <li>clear image</li>
-                <li>clear </li>
                 <li>Discount in numbers (if no discount available on it enter it 0)</li>
                 <li>A short description about that product of 7-10 words</li>
                 <li>A long description of 20 to 50 words</li>

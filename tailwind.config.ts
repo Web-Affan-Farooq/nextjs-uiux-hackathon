@@ -9,12 +9,14 @@ export default {
  
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
+	"./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
   	extend: {
   		colors: {
   			purple: '#272343',
   			blue: '#029FAE',
+			orangelabel:'#F5813F',
   			graytext: '#636270',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

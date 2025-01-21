@@ -1,4 +1,5 @@
 "use client";
+
 import React, {createContext, useState} from 'react';
 
 export const navContext = createContext<[boolean, React.Dispatch<React.SetStateAction<boolean>>]>([false, () => {}]);

@@ -5,9 +5,12 @@ import { Product } from '@/@types/Products';
 import toast, {Toaster} from 'react-hot-toast';
 import Image from 'next/image';
 import { CartContext } from '@/context/CartContext';
+import { WishlistContext } from '@/context/WishlistContext';
+import { Button } from '@/components/ui/button';
 
 const Section_1 = ({data}: {data:Product}) => {
     const [cart, setCart] = useContext(CartContext);
+    const [wishList, setWishList] = useContext(WishlistContext);
 
     const handleAddToCart = () => {
         setCart((prev) => [...prev, data]);
@@ -18,6 +21,16 @@ const Section_1 = ({data}: {data:Product}) => {
             }
         })
     }
+    const handleAddToWishlist = () => {
+        setWishList((prev) => [...prev, data]);
+        toast.success("Product Added To Wishlist Successfully", {
+            style: {
+                backgroundColor:"rgba(255,255,255,0.5)",
+                backdropFilter:"blur(20px)",
+            }
+        })
+    }
+
     return (
         <>
         <Toaster reverseOrder={false} position="top-left"/>
@@ -37,13 +50,22 @@ const Section_1 = ({data}: {data:Product}) => {
                 <br />
                 <p className='font-normal text-purple'>{data.longDescription[0].children[0].text}</p>
                 <br />
-                <div>
-                    <button type="button" className='text-white bg-blue rounded-md font-bold flex flex-row flex-nowrap text-center gap-2 px-[20px] py-[10px]' onClick={() => {
+                <div className='flex flex-row flex-nowrap gap-5'>
+                    
+                    <Button className='text-white bg-orangelabel rounded-md font-bold flex flex-row flex-nowrap text-center text-[16px] gap-2 px-[10px] py-[23px] hover:bg-purple' onClick={() => {
+                        handleAddToWishlist();
+                    }}>
+                    <Image src={"/icons/heart-white.svg"} alt='cart' width={20} height={20} className='' />
+                        <span>Add To Wishlist</span>
+                    </Button>
+
+                    <Button className='text-white bg-blue rounded-md font-bold flex flex-row flex-nowrap text-center text-[16px] gap-2 px-[10px] py-[23px] hover:bg-purple' onClick={() => {
                         handleAddToCart();
                     }}>
-                        <Image src={"/icons/cart.svg"} alt='cart' width={20} height={20} className='' />
+                    <Image src={"/icons/cart.svg"} alt='cart' width={20} height={20} className='' />
                         <span>Add To Cart</span>
-                    </button>
+                    </Button>
+
                 </div>
             </div>
         </section>
