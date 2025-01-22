@@ -53,7 +53,7 @@ const Main_section = () => {
                             <br />
                             <div className='m-auto'>
                             <Link href={"/checkout"}>
-                            <Button className='text-white bg-orangelabel rounded-md font-bold flex flex-row flex-nowrap text-center text-[16px] gap-2 px-[10px] py-[23px] hover:bg-purple'>
+                            <Button className='text-white bg-blue rounded-md font-bold flex flex-row flex-nowrap text-center text-[16px] gap-2 px-[10px] py-[23px] hover:bg-purple'>
                         <span>Proceed To Checkout</span>
                     </Button>                
                             </Link>

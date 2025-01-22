@@ -28,7 +28,7 @@ const Card = ({ image, name, price, link, allowResponsiveness }: Card) => {
                     </div>
                     <div>
                         <Link href={"/products/" + link}>
-                        <Button className='max-md:hidden bg-blue px-[10] py-[10] hover:bg-purple transition-all'><Image src={"/icons/cart.svg"} alt='cart' width={20} height={20}/></Button>
+                        <Button className='max-md:hidden bg-blue px-[10px] py-[10px] hover:bg-purple transition-all'><Image src={"/icons/cart.svg"} alt='cart' width={20} height={20}/></Button>
                         </Link>
                     </div>
                 </div>
@@ -50,7 +50,7 @@ const Card = ({ image, name, price, link, allowResponsiveness }: Card) => {
                     </div>
                     <div>
                         <Link href={"/products/" + link}>
-                        <Button className='max-md:hidden bg-blue px-[10] py-[10] hover:bg-purple transition-all'><Image src={"/icons/cart.svg"} alt='cart' width={20} height={20}/></Button>
+                        <Button className='max-md:hidden bg-blue px-[10px] py-[10px] hover:bg-purple transition-all'><Image src={"/icons/cart.svg"} alt='cart' width={20} height={20}/></Button>
                         </Link>
                     </div>
                 </div>
