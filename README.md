@@ -4,7 +4,7 @@
 <ol>
 <li><a href="./guides/Hackathon Project Documentation.pdf">Day-1 documentation</a></li>
 <li><a href="#p">day-2 technical planning </a></li>
-<li><a href="#consider">day-3 planning technical planning </a></li>
+<li><a href="#consider">day-3 API integrations </a></li>
 <li><a href="#source">day-4 dynamic components</a></li>
 <li><a href="./guides/day-5.md">day-5 Testing</a></li>
 <li><a href="./guides/day-6.md">day-6 Staging enviroment</a></li>

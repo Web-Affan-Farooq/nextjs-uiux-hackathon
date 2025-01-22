@@ -16,7 +16,7 @@ const Main_section = () => {
                 <div className='flex flex-col flex-nowrap gap-4'>
                             <div className='flex flex-row flex-nowrap justify-start items-center'>
                             <h1 className='text-[30px] font-bold leading-[33px] text-black mx-[30px]'>Your Bag</h1>
-                            <Image src={"/icons/heart.svg"} alt='heart' width={20} height={20}/>
+                            <Image src={"/icons/cart-black.svg"} alt='heart' width={20} height={20}/>
                             </div>                    <br /><br />
                     <div className='flex flex-col flex-nowrap justify-center items-center text-[20px] font-bold text-gray-500'>
                         No product found in your cart
@@ -41,7 +41,7 @@ const Main_section = () => {
                         <div className='flex flex-col flex-nowrap gap-4'>
                             <div className='flex flex-row flex-nowrap justify-start items-center'>
                             <h1 className='text-[30px] font-bold leading-[33px] text-black mx-[30px]'>Your Bag</h1>
-                            <Image src={"/icons/heart.svg"} alt='heart' width={20} height={20}/>
+                            <Image src={"/icons/cart-black.svg"} alt='heart' width={20} height={20}/>
                             </div>                            <br /><br />
                             <div className='flex flex-col flex-nowrap justify-center items-center gap-1'>
                             {
