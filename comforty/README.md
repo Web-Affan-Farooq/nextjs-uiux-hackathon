@@ -181,6 +181,25 @@ so that it loads my enviroment variables globally in vite project.
     </div>
 </section>
     <hr/>
+    <section>
+    <h3>Backend routes:</h3>
+<p>Backend Rouet and thier functions are as follows:</p>
+  <div>
+        <table style="border:2px solid black;">
+            <tr>
+                <th style="padding:10px 20px">S.no</th>
+                <th style="padding:10px 20px">folder name</th>
+                <th style="padding:10px 20px">Response</th>
+            </tr>
+            <tr>
+                <td style="padding:10px 20px">1. </td>
+                <td style="padding:10px 20px">/api/get-products</td>
+                <td style="padding:10px 20px">Returns array containing products (used only for testing purposes)</td>
+            </tr>    
+        </table>
+    </div>
+    </section>
+    <hr/>
 <section id="guide-data-entry">
     <h1>Guide For Data Entry</h1>
     <ul>
@@ -220,7 +239,11 @@ so that it loads my enviroment variables globally in vite project.
             </ol>
         </li>
         </ul>
-
+        <h1>Upcoming Updates:</h1>
+        - The schema and query is ready to create products . Just add upploading script and backend route for checkout form so that the backend will get the data and create a new entry in orders. 
+        - Data validation should be implemented on checkout page first and then in backend route that handles this users data
+        - Use Zod for this
+        - Create more responsive checkout section
 </section>
 </article>
 </main>

@@ -16,7 +16,7 @@ export default {
   		colors: {
   			purple: '#272343',
   			blue: '#029FAE',
-			orangelabel:'#F5813F',
+  			orangelabel: '#F5813F',
   			graytext: '#636270',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -64,9 +64,9 @@ export default {
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
-		boxShadow: {
-			'card':"0px 0px 40px 20px black"
-		},
+  		boxShadow: {
+  			card: '0px 0px 40px 20px black'
+  		},
   		keyframes: {
   			'accordion-down': {
   				from: {
