@@ -61,6 +61,11 @@ export default {
                     title: "Card Holder's Name"
                 },
                 {
+                    name: "accountNumber",
+                    type: "string",
+                    title: "Account Number"
+                },
+                {
                     name: "cardNumber",
                     type: "string",
                     title: "Card Number"

@@ -245,5 +245,31 @@ so that it loads my enviroment variables globally in vite project.
         - Use Zod for this
         - Create more responsive checkout section
 </section>
+
+<section>
+name:
+country 
+province 
+city 
+postal code
+phonenumber
+email
+card holder 
+account number
+
+
+completed address 
+card number
+expiration date
+cvv
+amount payable
+description 
+package = {
+    productName:"";
+    productId:"";
+    quantity:0;
+}
+
+</section>
 </article>
 </main>
