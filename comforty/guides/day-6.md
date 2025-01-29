@@ -1,6 +1,7 @@
-## Staging for depoyment: (completed)
+## Staging for deployment: (completed)
+
 <div>
-    <h1>Lighhouse report</h1>
+    <h1>Lighthouse report</h1>
     <div>Performance: 55%</div>
     <div>Accessibility: 91%</div>
     <div>Best practices: 79%</div>

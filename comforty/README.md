@@ -6,7 +6,8 @@
 <li><a href="#p">day-2 technical planning </a></li>
 <li><a href="#consider">day-3 API integrations </a></li>
 <li><a href="#source">day-4 dynamic components</a></li>
-<li><a href="./guides/day-5.md">day-5 Testing</a></li>
+<li><a href="./guides/test-report.csv">day-5 Testing overview</a></li>
+<li><a href="https://docs.google.com/spreadsheets/d/1HBYwAZR7ri6PmB6pdYiQWE2OwqH4RQmZ6r3VQsUBFqU/edit?gid=0#gid=0">day-5 Testing report CSV format</a></li>
 <li><a href="./guides/day-6.md">day-6 Staging enviroment</a></li>
 
 
@@ -28,14 +29,14 @@
 <section>
 <h1>Tools used:</h1>
     <ul>
-        <li>Typescript</li>
-        <li>NextJS</li>
-        <li>TailwindCSS</li>
-        <li>Shadcn-ui</li>
-        <li>Next-UI</li>
-        <li>React-hot-toast</li>
-       <li>Sanity</li>
-        <li>React</li>
+        <li>Typescript (programming code)</li>
+        <li>NextJS (main provider frammework)</li>
+        <li>TailwindCSS (For stylings)</li>
+        <li>Shadcn-ui (For integrating components)</li>
+        <li>Next-UI (For integrating components)</li>
+        <li>React-hot-toast (For notifications)</li>
+       <li>Sanity (For main backend)</li>
+        <li>React (library for interface)</li>
     </ul>
 </section>
 
@@ -240,36 +241,14 @@ so that it loads my enviroment variables globally in vite project.
         </li>
         </ul>
         <h1>Upcoming Updates:</h1>
-        - The schema and query is ready to create products . Just add upploading script and backend route for checkout form so that the backend will get the data and create a new entry in orders. 
+        - The schema and query is ready to create products . Just add uploading script and backend route for checkout form so that the backend will get the data and create a new entry in orders. 
         - Data validation should be implemented on checkout page first and then in backend route that handles this users data
         - Use Zod for this
         - Create more responsive checkout section
+        - regex
+        -Attach more solid validation in payment info checkout section
 </section>
-
 <section>
-name:
-country 
-province 
-city 
-postal code
-phonenumber
-email
-card holder 
-account number
-
-
-completed address 
-card number
-expiration date
-cvv
-amount payable
-description 
-package = {
-    productName:"";
-    productId:"";
-    quantity:0;
-}
-
 </section>
 </article>
 </main>

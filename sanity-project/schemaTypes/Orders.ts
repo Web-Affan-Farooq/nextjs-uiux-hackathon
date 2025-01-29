@@ -135,7 +135,6 @@ export default {
                 }
             ]
         }
-
         /* Run this querry to get products: */
         /*
                    *[_type == "order"] {

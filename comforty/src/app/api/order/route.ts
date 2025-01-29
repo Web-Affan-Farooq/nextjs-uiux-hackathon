@@ -1,7 +1,9 @@
 // ------------->  Backend route for handling user info coming from checkout form
 
-export const POST = async (req:Request) => {
-    const data =await req.json();  //  ----------------------------------error identified here 
+import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
+export const POST = async (req:NextRequest) => {
+    const data = await req.json();
     console.log(data);
-    return Response.json({message:"confimed"});
+    return NextResponse.json({message:"confirmation from server"});
 }

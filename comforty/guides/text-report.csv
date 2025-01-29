@@ -1,0 +1,22 @@
+S.no,Test steps,Procedure,Expected results,Actual results,Status:,Remarks
+1,Fetching products data,Write query to fetch products on main page,Products fetched successfully,Products fetched successfully,Passed,Use console.log to verify fetch
+2,Check product card responsiveness on inserting data,Insert data into product cards,Correctly handled products data without any responsiveness issues,"Responsiveness is correct but some images are too large, affecting flex container behavior	",Failed,Validate image field in Sanity Studio to ensure fixed dimensions
+3,Limiting fetch results in each category,Limit the number of products fetched on the first render,Minimum 30 products fetched,All products fetched once,Onhold,Use intersection observer with useEffect to track user scrolling and fetch data dynamically
+4,Checking dynamic routes,Open /products/(id),Displays page corresponding to product ID,Displays page corresponding to product ID,Passed,---
+5,Fetch product with id,Write fetch query in dynamic routes,Displays array containing required product,Displays array containing required product,Passed,use console.log() to verif fetch
+6,add to cart functionality,"Click ""Add to Cart"" button on product details page","Adds product data to ""CartContext""","Adds product data to ""CartContext""",Passed,use console.log() to verify context presence
+7,add to wishlist functionality,"Click ""Add to Wishlist "" button on product details page","Adds product data to ""WishlistContext""","Adds product data to ""WishlistContext""",Passed,use console.log() to verify context presence
+8,Display cart products on /cart page,Open cart page and check cards are showing,Products displayed correctly,Products displayed correctly,Passed,----
+9,Responsiveness test on card of cart page,Resize screen and check the responsiveness of cards,Correctly responsive,Correctly responsive,Passed,Focus on better UI UX designs
+10,Check fallback UI on empty cart,"Message: ""No products found in your cart"" and ""Browse Products"" button",Message and button appear correctly,Message and button appear correctly,Passed,Create animations on that page
+11,Check fallback UI on empty wishlist page,"Message: ""No products found in your wishlist"" and ""Browse Products"" button",Message and button appear correctly,Message and button appear correctly,Passed,Create animations on that page
+12,Check delete product from cart functionality-1,"Click ""Delete"" button on card appearing on cart page","Check notification: ""Product deleted from cart successfully""","Check notification: ""Product deleted from cart successfully""",Passed,----
+13,Check delete product from cart functionality-2,"Click ""Delete"" button on card appearing on cart page","Product deleted from ""CartContext"" successfully","Product deleted from ""CartContext"" successfully",Passed,Use console.log() to verify context presence
+14,Check delete product from Wishlist functionality-1,"Click ""Delete"" button on card appearing on wishlist page","Check notification: ""Product deleted from wishlist successfully""","Check notification: ""Product deleted from wishlist successfully""",Passed,-------
+15,Check delete product from Wishlist functionality-2,"Click ""Delete"" button on card appearing on wishlist page","Product deleted from ""WishlistContext"" successfully","Product deleted from ""WishlistContext"" successfully",Passed,Use console.log() to verify context presence
+16,Display wishlist products on /wishlist page,Open wishlist page,Products displayed correctly,Products displayed correctly,Passed,-------
+17,Move to cart from wishlist,On the wishlist page click on move to cart button,All the products moved to cart successfully,Moved onlyone items with specific id at a time,Failed,Use appropriate array methods
+18,See if the count is updating correctly,Add and delete products from wishlist and cart,Correctly showing and updating,Correctly showing and updating,Passed,-------
+19,Checking validations on checkout form,Open cart page and submit data with incorrect pattern,Throw an error when submitted,Throw an error when submitted,Passed,-------
+20,Check for broken links,Open links in header and footer one by one,Header links pointed to their respective routes while footer links point towards /,Header links pointed to their respective routes while footer links point towards /,Passed,-------
+21,Check for validation in contact page,Open contact page and submit data with incorrect pattern,Throw an error when submitted,Throw an error when submitted,Passed,-------
