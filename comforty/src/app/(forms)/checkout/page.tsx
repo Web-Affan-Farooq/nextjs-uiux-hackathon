@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
 import Form from '@/components/(Checkout)/Form';
 
 const Checkout = () => {

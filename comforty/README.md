@@ -68,6 +68,16 @@ Note that separate sanity projects, if created can use <b>Vite</b> as thier defa
 <p>I'm using typescript in vite therefore I have also given type definitions of enviroment by creating <strong>vite-env.d.ts</strong> file <a href="./sanity-project/vite-env.d.ts">Check this out</a>
 so that it loads my enviroment variables globally in vite project.
 </p>
+
+<h3>Important Note:</h3>
+<ol>
+<li>Make sure to secure the secrets using .env file by following <a href="https://youtu.be/EQ3Htw6Z0PY?si=nK3e18gHz5wNlyFG">this guide</a></li>
+<li>Make sure that this line <code>.env*</code> is added in your .gitignore file in sanity project </li>
+<li>Make sure that autoUpdate option in sanity.config.ts is set to false
+up</li>
+<li>Make sure to set up tailwindcss with vite manually by <a href="">Following this guide</a> </li>
+</ol>
+
 <h3>Routes And Navigations:</h3>
 <p>This project contains the following routes</p>
     <div>
@@ -178,24 +188,40 @@ so that it loads my enviroment variables globally in vite project.
                 <td style="padding:10px 20px">/data</td>
                 <td style="padding:10px 20px">Acts as primary data source for local api andpoint</td>
             </tr> 
+             <tr>
+                <td style="padding:10px 20px">9. </td>
+                <td style="padding:10px 20px">/src/validations</td>
+                <td style="padding:10px 20px">Contains zod schema for validating data in forms</td>
+            </tr> 
         </table>
     </div>
 </section>
     <hr/>
     <section>
     <h3>Backend routes:</h3>
-<p>Backend Rouet and thier functions are as follows:</p>
+<p>Backend routes and thier functions are as follows:</p>
   <div>
         <table style="border:2px solid black;">
             <tr>
                 <th style="padding:10px 20px">S.no</th>
                 <th style="padding:10px 20px">folder name</th>
+                <th style="padding:10px 20px">Methods allowed</th>
+                <th style="padding:10px 20px">Functions</th>
                 <th style="padding:10px 20px">Response</th>
             </tr>
             <tr>
                 <td style="padding:10px 20px">1. </td>
                 <td style="padding:10px 20px">/api/get-products</td>
+                <td style="padding:10px 20px">GET</td>
+                <td style="padding:10px 20px">Custom api for products data</td>
                 <td style="padding:10px 20px">Returns array containing products (used only for testing purposes)</td>
+            </tr>    
+            <tr>
+                <td style="padding:10px 20px">2. </td>
+                <td style="padding:10px 20px">/api/order</td>
+                <td style="padding:10px 20px">POST</td>
+                <td style="padding:10px 20px">api for handling checkout form data and create a new order entry in sanity</td>
+                <td style="padding:10px 20px">Returns a confirmation message for order placement .</td>
             </tr>    
         </table>
     </div>
@@ -242,10 +268,8 @@ so that it loads my enviroment variables globally in vite project.
         </ul>
         <h1>Upcoming Updates:</h1>
         - The schema and query is ready to create products . Just add uploading script and backend route for checkout form so that the backend will get the data and create a new entry in orders. 
-        - Data validation should be implemented on checkout page first and then in backend route that handles this users data
-        - Use Zod for this
-        - Create more responsive checkout section
-        - regex
+        - Data validation should be implemented on checkout page first and then in backend route that handles this users data Using Zod
+        Create more responsive checkout section
         -Attach more solid validation in payment info checkout section
 </section>
 <section>

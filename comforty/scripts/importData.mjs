@@ -29,7 +29,6 @@ class createProduct{
     this.quantity_available = quantity_available;
     this.tags = tags;
     this.warranty = warranty;
-    
   }
 }
 

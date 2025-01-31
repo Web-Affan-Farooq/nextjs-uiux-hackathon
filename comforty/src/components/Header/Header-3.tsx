@@ -53,14 +53,6 @@ const Header_3 = () => {
         >
           About
         </Link>
-        <Link
-          href="/checkout"
-          className="hover:text-blue transition-all text-[14px] font-medium"
-          onClick={closeNav} // Close menu on link click
-        >
-          checkout
-        </Link>
-
       </div>
 
       {/* Contact and Toggle */}

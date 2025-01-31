@@ -1,3 +1,3 @@
 ## NextJS Hackathon project for GIAIC:
 
-[See the documentation](./comforty/README.md)
+<a href="./comforty/README.md">Check out docs</a>
