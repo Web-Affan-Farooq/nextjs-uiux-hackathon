@@ -1,24 +1,56 @@
 "use client";
 
-import React, { useContext,useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button } from '../ui/button';
 import { CartContext } from '@/context/CartContext';
 import { Product } from '@/@types/Products';
-import { personalInfoCheckoutSchema } from '@/validations/PersonalInfoCheckout';
+import  personalInfoCheckoutSchema  from '@/validations/PersonalInfoCheckout';
 import ShipmentInfoCheckoutSchema from '@/validations/ShipmentInfoCheckout';
-import toast, {Toaster} from 'react-hot-toast';
+import PaymentInfoCheckoutSchema from '@/validations/PaymentInfoCheckout';
+import toast, { Toaster } from 'react-hot-toast';
+import { type ZodError } from 'zod';
 
 interface Package {
-    product_name:string;
-    id:string;
-    quantity:number;
+    product_name: string;
+    id: string;
+    quantity: number;
 }
+
 /*string = APY04XbyGBIFrgGh7HpBua5kSVvOtTdmTp0klnT1RnRzVngls8gyVFVWJWBemQCqot */
 const Form = () => {
 
-    const [cart] = useContext(CartContext);  //------------> using cart context
+    //-------> using cart context
+    const [cart] = useContext(CartContext);
 
-    const price = () => {    // price();---------> call this function for calculating prices
+    //------------> fetching should be controlled by it
+    const [load] = useState(false);  
+
+    //------------> main function for fetching data
+    const postData = async () => {
+        try {
+            const response = await fetch("/api/order", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({}) // post original data instead of {}
+            });
+            const data = await response.json();
+
+        } catch (err) {
+            // ----------> popup notification for error
+            toast.error("Error While fetching"); 
+            console.error(err);
+        }
+    }
+
+// --------> fetch data when load state changes
+    useEffect(() => { 
+        postData();
+    }, [load]);
+
+    // price();---------> call this function for calculating prices
+    const price = () => {    
         let amount = 0;
         cart.forEach((product: Product) => {
             amount += product.price
@@ -26,8 +58,9 @@ const Form = () => {
         return amount;
     }
 
-    const createPackages = () => {    // createPackages(); -------> call this function to create package details
-        let array:Package[] = [];
+    // createPackages(); -------> call this function to create package details
+    const createPackages = () => { 
+        let array: Package[] = [];
 
         cart.forEach((product: Product) => {
             array.push({
@@ -39,9 +72,11 @@ const Form = () => {
         return array
     }
 
+    // -------> controlling form vibility
     const [index, setindex] = useState(3);
 
-    const [userData, setuserData] = useState(     // createPackages(); ----------> State containing details of user
+    //-------> state that stores incoming form data
+    const [userData, setuserData] = useState( 
         {
             name: "",
             phoneNumber: "",
@@ -56,58 +91,93 @@ const Form = () => {
             cardNumber: "",
             expirationDate: "",
             CVV: "",
-            amountPayable: "$" + String(price()),
+            amountPayable: "$" + String(price()), // calculating prices using price() ----> returns number
             description: "",
-            packages: createPackages(),
+            packages: createPackages(),// calculating prices using price() ----> returns products object containing required info
         }
     );
 
-    //---------------->  functions for handling form submitions:
-    const handleFormSubmission_1 = (e:React.FormEvent<HTMLFormElement
-        >) => {
-            e.preventDefault();
+    //---------------->  function for handling personal info form-1
+    const handleFormSubmission_1 = (e: React.FormEvent<HTMLFormElement
+    >) => {
+        e.preventDefault();
 
-        // console.log("personal info form submitted");
         // setindex(2);
-        console.log(userData);
+        // console.log(userData);
+
         const data = {
-            name:userData.name.trim(),
-            email:userData.email.trim(),
-            phonenumber:userData.phoneNumber.trim(),
-            address:userData.completeAddress.trim(),
+            name: userData.name.trim(),
+            email: userData.email.trim(),
+            phonenumber: userData.phoneNumber.trim(),
+            address: userData.completeAddress.trim(),
         }
         try {
             personalInfoCheckoutSchema.parse(data);
+            setuserData({
+                ...userData, email: personalInfoCheckoutSchema.parse(data).email, phoneNumber: personalInfoCheckoutSchema.parse(data).phonenumber, completeAddress: personalInfoCheckoutSchema.parse(data).address,
+                name: personalInfoCheckoutSchema.parse(data).name
+            });
         }
-        catch(err) {
-            toast.error("Please enter correct details")       
+        catch (err: ZodError | any) {
+            toast.error(JSON.parse(err)[0].message);
         }
     }
 
-    const handleFormSubmission_2 = (e:React.FormEvent<HTMLFormElement>) => {
+    //---------------->  function for handling shipment info form-2
+    const handleFormSubmission_2 = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log("Shipment info form submitted");
         const data = {
-            country:userData.country.trim(),
-            province:userData.province.trim(),
-            city:userData.city.trim(),
-            postalcode:userData.postalCode.trim(),
+            country: userData.country.trim(),
+            province: userData.province.trim(),
+            city: userData.city.trim(),
+            postalcode: userData.postalCode.trim(),
         }
         console.log(userData);
         try {
-             ShipmentInfoCheckoutSchema.parse(data);
+            ShipmentInfoCheckoutSchema.parse(data);
+            setuserData({
+                ...userData, city: ShipmentInfoCheckoutSchema.parse(data).city,
+                province: ShipmentInfoCheckoutSchema.parse(data).province,
+                country: ShipmentInfoCheckoutSchema.parse(data).country,
+                postalCode: ShipmentInfoCheckoutSchema.parse(data).postalcode,
+            });
         }
-        catch(err) {
-            toast.error("Please enter correct details")       
-        }  
-      }
+        catch (err: ZodError | any) {
+            toast.error(JSON.parse(err)[0].message);
+        }
+    }
+
+    //---------------->  function for handling payment info form-3
+    const handleFormSubmission_3 = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log("payment info form submitted");
+        const data = {
+            cardnumber: userData.cardNumber.trim(),
+            expDate: userData.expirationDate.trim(),
+            CVV: userData.CVV.trim(),
+            instructions: userData.description.trim(),
+        }
+        try {
+            PaymentInfoCheckoutSchema.parse(data);
+            setuserData({
+                ...userData, cardNumber: PaymentInfoCheckoutSchema.parse(data).cardnumber,
+                CVV: PaymentInfoCheckoutSchema.parse(data).CVV,
+                expirationDate: PaymentInfoCheckoutSchema.parse(data).expDate,
+                description: PaymentInfoCheckoutSchema.parse(data).instructions,
+            })
+        } catch (err: ZodError | any) {
+            toast.error(JSON.parse(err)[0].message)
+        }
+    }
+
 
     // ------------------> applying conditional rendering so that form will apppear one by one
 
     if (index === 1) {  // ---------------> return personal details fields
         return (
             <section className='w-[500px] max-lg:w-[400px] max-md:w-[90vw]'>
-                <Toaster reverseOrder={false}/>
+                <Toaster reverseOrder={false} />
                 <form action="/" className='p-3' onSubmit={handleFormSubmission_1}>
                     <h1 className='text-3xl font-bold'>Checkout</h1>
                     <br />
@@ -125,7 +195,7 @@ const Form = () => {
                         <div className='px-5 py-1 flex flex-col gap-2'>
                             <label htmlFor="Enter your name" id='customer-email' className='text-[15px] text-gray-500'>Your email:</label>
                             <div>
-                                <input type="email" name='customerEmail' pattern={"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"} id='customer-email' required  placeholder='abcd@gmail.com' className='border-2 border-solid border-black rounded-md px-[20px] text-[15px] py-[10px] w-[310px]' onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                <input type="email" name='customerEmail' pattern={"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"} id='customer-email' required placeholder='abcd@gmail.com' className='border-2 border-solid border-black rounded-md px-[20px] text-[15px] py-[10px] w-[310px]' onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                     setuserData({ ...userData, email: e.target.value });
                                 }} />
                             </div>
@@ -135,13 +205,13 @@ const Form = () => {
                             <label htmlFor="Enter your phonenumber" id='customer-phonenumber' className='text-[15px] text-gray-500'>Your phonenumber:</label>
                             <div>
                                 <input type="tel" name='customerPhone' id='customer-phonenumber' minLength={4} maxLength={11} pattern={"^[0-9]{4,11}$"} required placeholder='0000-0000000' className='border-2 border-solid border-black rounded-md px-[20px] text-[15px] py-[10px] w-[310px]' onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                    e.target.value.split("").forEach((char:string) => {
-                                        if(isNaN(Number(char))) {
+                                    e.target.value.split("").forEach((char: string) => {
+                                        if (isNaN(Number(char))) {
                                             e.target.value = "";
                                             alert("Please enter valid number")
                                         }
                                     });
-                                    setuserData({...userData, phoneNumber:e.target.value})
+                                    setuserData({ ...userData, phoneNumber: e.target.value })
                                 }} />
                             </div>
                         </div>
@@ -170,6 +240,7 @@ const Form = () => {
     } else if (index === 2) { // --------------> return shipment details fields
         return (
             <section className='w-[500px] max-lg:w-[400px] max-md:w-[90vw]'>
+                <Toaster reverseOrder={false} />
                 <form action="/" className='p-3' onSubmit={handleFormSubmission_2}>
                     <h1 className='text-3xl font-bold'>Checkout</h1>
                     <br />
@@ -235,7 +306,8 @@ const Form = () => {
     } else if (index === 3) { // ---------------> return payment details fields
         return (
             <section className='w-[500px] max-lg:w-[400px] max-md:w-[90vw]'>
-                <form action="/" className='p-3'>
+                <Toaster reverseOrder={false} />
+                <form action="/" className='p-3' onSubmit={handleFormSubmission_3}>
                     <h1 className='text-3xl font-bold'>Checkout</h1>
                     <br />
                     <fieldset>
@@ -251,13 +323,20 @@ const Form = () => {
                         <div className='px-5 py-1 flex flex-col gap-3'>
                             <label htmlFor="Enter card number" id='card-number' className='text-[15px] text-gray-500'>Select expiration date</label>
                             <input type="date" name="expirationDate" id="expiration-date" className='border-2 border-solid border-black rounded-md px-[20px] text-[15px] py-[10px] w-[310px]' required onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+
+                                let date = new Date();
+                                let userDate = new Date(e.target.value);
+
+                                date.setHours(0, 0, 0, 0);
+                                userDate.setHours(0, 0, 0, 0);
+                                //---->    perform comparing 
                                 setuserData({ ...userData, expirationDate: e.target.value });
                             }} />
                         </div>
 
                         <div className='px-5 py-1 flex flex-col gap-3'>
                             <label htmlFor="Enter Card verification value" id='card-vr-value' className='text-[15px] text-gray-500'>Enter CVV</label>
-                            <input type="text" name='cardVrValue' id='card-vr-value' placeholder='Card verification value' required pattern={''} className='border-2 border-solid border-black rounded-md px-[20px] text-[15px] py-[10px] w-[310px]' onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                            <input type="text" name='cardVrValue' id='card-vr-value' placeholder='Card verification value' required maxLength={4} minLength={3} className='border-2 border-solid border-black rounded-md px-[20px] text-[15px] py-[10px] w-[310px]' onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                 setuserData({ ...userData, CVV: e.target.value });
                             }} />
                         </div>
@@ -271,7 +350,7 @@ const Form = () => {
                     </fieldset>
                     <br />
                     <div className='flex flex-row flex-nowrap justify-start items-center gap-3'>
-                        <Button className='text-white bg-blue rounded-md font-bold flex flex-row flex-nowrap text-center text-[16px] gap-2 px-[10px] py-[23px] hover:bg-purple' type='button' onClick={() => {
+                        <Button className='text-white bg-blue rounded-md font-bold flex flex-row flex-nowrap text-center text-[16px] gap-2 px-[10px] py-[23px] hover:bg-purple' type={'submit'} onClick={() => {
                             // setindex(3)
                             console.log(userData);
                         }}>

@@ -6,8 +6,10 @@ import z from "zod";
 const PaymentInfoCheckoutSchema = z.object(
     {
         cardnumber:z.string(),
-        expDate:z.date(),
+        expDate: z.string().date(), // validates --------------> 2025-01-11
         CVV:z.string().regex(/^[0-9]{3,4}$/, "incorrect pattern of CVV"),
         instructions:z.string().min(50).max(200),
     }
 ).strict()
+export default PaymentInfoCheckoutSchema;
+

@@ -128,8 +128,12 @@ export default {
                                 name: "productQuantityRequired",
                                 type: "number",
                                 title: "Quantity"
-                            }
-
+                            },
+                            // {
+                            //     name: "productWeight",
+                            //     type: "number",
+                            //     title: "Product Weight In Kgs"
+                            // },
                         ]
                     }]
                 }
