@@ -3,11 +3,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Button } from '../ui/button';
 import { CartContext } from '@/context/CartContext';
-import { Product } from '@/@types/Products';
+import { CartProduct } from '@/@types/CartProduct';
 import  personalInfoCheckoutSchema  from '@/validations/PersonalInfoCheckout';
 import ShipmentInfoCheckoutSchema from '@/validations/ShipmentInfoCheckout';
 import PaymentInfoCheckoutSchema from '@/validations/PaymentInfoCheckout';
-import toast, { Toaster } from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 import { type ZodError } from 'zod';
 
 interface Package {
@@ -19,11 +20,66 @@ interface Package {
 /*string = APY04XbyGBIFrgGh7HpBua5kSVvOtTdmTp0klnT1RnRzVngls8gyVFVWJWBemQCqot */
 const Form = () => {
 
+    //-------> initializing router for redirect
+    const router = useRouter();
+
     //-------> using cart context
     const [cart] = useContext(CartContext);
 
     //------------> fetching should be controlled by it
-    const [load] = useState(false);  
+    const [load, setLoad] = useState(false);  
+
+        // -------> controlling form vibility
+        const [index, setindex] = useState(1);
+
+        // price();---------> call this function for calculating prices
+    const price = () => {    
+        let amount = 0;
+        cart.forEach((cartProduct: CartProduct) => {
+            const {product, quantity} = cartProduct;
+            amount += product.price;
+        });
+        return amount;
+    }
+
+    // createPackages(); -------> call this function to create package details
+    const createPackages = () => { 
+        let array: Package[] = [];
+
+        cart.forEach((cartProduct: CartProduct) => {
+            const {product, quantity} = cartProduct;
+            array.push({
+                product_name:product.productName,
+                id: product._id,
+                quantity: quantity,
+            })
+        });
+        return array;
+    }
+
+
+            //-------> state that stores incoming form data
+    const [userData, setuserData] = useState( 
+        {
+            name: "",
+            phoneNumber: "",
+            email: "",
+            completeAddress: "",
+
+            country: "Pakistan",
+            province: "Sindh",
+            city: "Karachi",
+            postalCode: "",
+
+            accountNumber:"",
+            cardNumber: "",
+            expirationDate: "",
+            CVV: "",
+            amountPayable: "$" + String(price()), // calculating prices using price() ----> returns number
+            description: "",
+            packages: createPackages(),// calculating prices using price() ----> returns products object containing required info
+        }
+    );
 
     //------------> main function for fetching data
     const postData = async () => {
@@ -33,69 +89,25 @@ const Form = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({}) // post original data instead of {}
+                body: JSON.stringify(userData) // post original data instead of {}
             });
             const data = await response.json();
-
+            toast.success(data.message);
+            router.push("/products");
         } catch (err) {
             // ----------> popup notification for error
-            toast.error("Error While fetching"); 
+            toast.error("Error while processing form data"); 
             console.error(err);
         }
     }
 
 // --------> fetch data when load state changes
     useEffect(() => { 
+        if(load) {
         postData();
+        // -----> call the redirect function from server
+        } else {}
     }, [load]);
-
-    // price();---------> call this function for calculating prices
-    const price = () => {    
-        let amount = 0;
-        cart.forEach((product: Product) => {
-            amount += product.price
-        });
-        return amount;
-    }
-
-    // createPackages(); -------> call this function to create package details
-    const createPackages = () => { 
-        let array: Package[] = [];
-
-        cart.forEach((product: Product) => {
-            array.push({
-                product_name: product.productName,
-                id: product._id,
-                quantity: 0
-            })
-        });
-        return array
-    }
-
-    // -------> controlling form vibility
-    const [index, setindex] = useState(3);
-
-    //-------> state that stores incoming form data
-    const [userData, setuserData] = useState( 
-        {
-            name: "",
-            phoneNumber: "",
-            email: "",
-            completeAddress: "",
-
-            country: "",
-            province: "",
-            city: "",
-            postalCode: "",
-
-            cardNumber: "",
-            expirationDate: "",
-            CVV: "",
-            amountPayable: "$" + String(price()), // calculating prices using price() ----> returns number
-            description: "",
-            packages: createPackages(),// calculating prices using price() ----> returns products object containing required info
-        }
-    );
 
     //---------------->  function for handling personal info form-1
     const handleFormSubmission_1 = (e: React.FormEvent<HTMLFormElement
@@ -117,6 +129,7 @@ const Form = () => {
                 ...userData, email: personalInfoCheckoutSchema.parse(data).email, phoneNumber: personalInfoCheckoutSchema.parse(data).phonenumber, completeAddress: personalInfoCheckoutSchema.parse(data).address,
                 name: personalInfoCheckoutSchema.parse(data).name
             });
+            setindex(2)
         }
         catch (err: ZodError | any) {
             toast.error(JSON.parse(err)[0].message);
@@ -126,14 +139,14 @@ const Form = () => {
     //---------------->  function for handling shipment info form-2
     const handleFormSubmission_2 = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("Shipment info form submitted");
+        // console.log("Shipment info form submitted");
         const data = {
             country: userData.country.trim(),
             province: userData.province.trim(),
             city: userData.city.trim(),
             postalcode: userData.postalCode.trim(),
         }
-        console.log(userData);
+        // console.log(userData);
         try {
             ShipmentInfoCheckoutSchema.parse(data);
             setuserData({
@@ -142,6 +155,7 @@ const Form = () => {
                 country: ShipmentInfoCheckoutSchema.parse(data).country,
                 postalCode: ShipmentInfoCheckoutSchema.parse(data).postalcode,
             });
+            setindex(3);
         }
         catch (err: ZodError | any) {
             toast.error(JSON.parse(err)[0].message);
@@ -151,12 +165,13 @@ const Form = () => {
     //---------------->  function for handling payment info form-3
     const handleFormSubmission_3 = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("payment info form submitted");
+        // console.log("payment info form submitted");
         const data = {
             cardnumber: userData.cardNumber.trim(),
             expDate: userData.expirationDate.trim(),
             CVV: userData.CVV.trim(),
             instructions: userData.description.trim(),
+            accountnumber:userData.accountNumber.trim(),
         }
         try {
             PaymentInfoCheckoutSchema.parse(data);
@@ -165,7 +180,9 @@ const Form = () => {
                 CVV: PaymentInfoCheckoutSchema.parse(data).CVV,
                 expirationDate: PaymentInfoCheckoutSchema.parse(data).expDate,
                 description: PaymentInfoCheckoutSchema.parse(data).instructions,
-            })
+                accountNumber: PaymentInfoCheckoutSchema.parse(data).accountnumber
+            });
+            setLoad(true);
         } catch (err: ZodError | any) {
             toast.error(JSON.parse(err)[0].message)
         }
@@ -177,7 +194,6 @@ const Form = () => {
     if (index === 1) {  // ---------------> return personal details fields
         return (
             <section className='w-[500px] max-lg:w-[400px] max-md:w-[90vw]'>
-                <Toaster reverseOrder={false} />
                 <form action="/" className='p-3' onSubmit={handleFormSubmission_1}>
                     <h1 className='text-3xl font-bold'>Checkout</h1>
                     <br />
@@ -195,7 +211,7 @@ const Form = () => {
                         <div className='px-5 py-1 flex flex-col gap-2'>
                             <label htmlFor="Enter your name" id='customer-email' className='text-[15px] text-gray-500'>Your email:</label>
                             <div>
-                                <input type="email" name='customerEmail' pattern={"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"} id='customer-email' required placeholder='abcd@gmail.com' className='border-2 border-solid border-black rounded-md px-[20px] text-[15px] py-[10px] w-[310px]' onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                <input type="email" name='customerEmail' id='customer-email' required placeholder='abcd@gmail.com' className='border-2 border-solid border-black rounded-md px-[20px] text-[15px] py-[10px] w-[310px]' onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                     setuserData({ ...userData, email: e.target.value });
                                 }} />
                             </div>
@@ -240,7 +256,6 @@ const Form = () => {
     } else if (index === 2) { // --------------> return shipment details fields
         return (
             <section className='w-[500px] max-lg:w-[400px] max-md:w-[90vw]'>
-                <Toaster reverseOrder={false} />
                 <form action="/" className='p-3' onSubmit={handleFormSubmission_2}>
                     <h1 className='text-3xl font-bold'>Checkout</h1>
                     <br />
@@ -289,7 +304,7 @@ const Form = () => {
                     <div className='flex flex-row flex-nowrap justify-start items-center gap-3'>
                         <Button className='text-white bg-blue rounded-md font-bold flex flex-row flex-nowrap text-center text-[16px] gap-2 px-[10px] py-[23px] hover:bg-purple' type={"submit"} onClick={() => {
                             // setindex(3)
-                            console.log(userData);
+                            // console.log(userData);
                         }}>
                             <span>Next</span>
                         </Button>
@@ -306,13 +321,18 @@ const Form = () => {
     } else if (index === 3) { // ---------------> return payment details fields
         return (
             <section className='w-[500px] max-lg:w-[400px] max-md:w-[90vw]'>
-                <Toaster reverseOrder={false} />
                 <form action="/" className='p-3' onSubmit={handleFormSubmission_3}>
                     <h1 className='text-3xl font-bold'>Checkout</h1>
                     <br />
                     <fieldset>
                         <legend className='text-[15px] text-white px-[20px] py-[6px] rounded-2xl bg-blue'>Payment details</legend>
 
+                        <div className='px-5 py-1 flex flex-col gap-3'>
+                            <label htmlFor="Enter account number" id='account-number' className='text-[15px] text-gray-500'>Enter account number</label>
+                            <input type="text" name='accountNumber' id='account-number' placeholder='Account number' required className='border-2 border-solid border-black rounded-md px-[20px] text-[15px] py-[10px] w-[310px]' onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                setuserData({ ...userData, accountNumber: e.target.value });
+                            }} />
+                        </div>
                         <div className='px-5 py-1 flex flex-col gap-3'>
                             <label htmlFor="Enter card number" id='card-number' className='text-[15px] text-gray-500'>Enter card number</label>
                             <input type="text" name='cardNumber' id='card-number' placeholder='Card number' required className='border-2 border-solid border-black rounded-md px-[20px] text-[15px] py-[10px] w-[310px]' onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -352,12 +372,12 @@ const Form = () => {
                     <div className='flex flex-row flex-nowrap justify-start items-center gap-3'>
                         <Button className='text-white bg-blue rounded-md font-bold flex flex-row flex-nowrap text-center text-[16px] gap-2 px-[10px] py-[23px] hover:bg-purple' type={'submit'} onClick={() => {
                             // setindex(3)
-                            console.log(userData);
+                            // console.log(userData);
                         }}>
                             <span>Confirm payment</span>
                         </Button>
                         <Button className='text-white bg-blue rounded-md font-bold flex flex-row flex-nowrap text-center text-[16px] gap-2 px-[10px] py-[23px] hover:bg-purple' type='button' onClick={() => {
-                            // setindex(1)
+                            setindex(2);
                         }}>
                             <span>Back</span>
                         </Button>

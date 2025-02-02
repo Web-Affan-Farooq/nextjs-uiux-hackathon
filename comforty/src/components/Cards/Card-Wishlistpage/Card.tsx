@@ -39,7 +39,6 @@ const Card = ({ image, title, id, description }: Card) => {
 
     return (
         <div className='p-3 flex flex-row flex-nowrap gap-7 justify-center items-center w-[400px] '>
-            <Toaster  reverseOrder={false} position="top-left" />
             <Image src={image} alt={title+" image"} width={150} height={150} className='object-cover' />
             <div className='flex flex-col flex-nowrap justify-center items-start gap-1'>
                 <span className='text-[18px] leading-[20px] font-bold text-black'>{title}</span>

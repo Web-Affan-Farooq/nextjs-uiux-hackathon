@@ -249,7 +249,7 @@ up</li>
         </li>
         <li>
             <h3>Required data for each product</h3>
-            <p>            For creating new product entry ensure that you have the following accurate data about that product</p>
+            <p>For creating new product entry ensure that you have the following accurate data about that product</p>
             <ol>
                 <li>product name</li>
                 <li>price (in USDT)</li>
@@ -266,11 +266,80 @@ up</li>
             </ol>
         </li>
         </ul>
+        <h2>Components list</h2>
+        <ol>
+        <li>Product listing component</li>
+        <li>Product details component</li>
+        <li>Category component</li>
+        <li>Search bar</li>
+        <li>Cart</li>
+        <li>Wishlist</li>
+        <li>Checkout flow</li>
+        <li>User profile</li>
+        <li>Reviews and ratings(implement it in the bottom of dynamic routes)</li>
+        <li>Pagination Component</li>
+        <li>Filter panel</li>
+        <li>Related Productss component(to be implemented on dynamic product route)</li>
+        <li>Related Productss component(to be implemented on dynamic product route)</li>
+        <li>Header and footer with links</li>
+        <li>Notification</li>
+        <li>Notifications component</li>
+        <li>Analytics and dashboard components</li>
+        <li>Product comparison</li>
+        <li>Multi language support component</li>
+        <li>Order tracking component</li>
+        <li>FAQs and help center</li>
+        <li>Subscription management</li>
+        <li>Admin dashboard</li>
+        <li>Discount and promotion</li>
+        <li>Social media sharing component </li>
+        <li>Bulk upload component</li>
+        <li>AI recommendation component</li>
+        <li>Gift card and voucher component</li>
+        <li>customer feedback</li>
+        <li>Advanced search component</li>
+        </ol>
+        <h1>hints:</h1>
+        Sales Analytics (Total Sales, Revenue, Orders, Refunds)
+ User Activity (New Customers, Active Users, Best Customers)
+ Order Summary (Pending, Shipped, Delivered, Cancelled)
+ Stock Alerts (Low Stock, Out-of-Stock Items)
+ Recent Transactions
+Add, Edit, Delete Products
+ Manage Product Variants (Size, Color, etc.)
+ Upload & Manage Images
+Set Discounts & Promotions
+ Inventory Management (Track Stock Levels)
+ View & Update Order Status (Pending, Processing, Shipped, Delivered, Canceled, Refunded)
+ Generate & Print Invoices
+ Track Shipping & Delivery
+ Handle Returns & Refunds
         <h1>Upcoming Updates:</h1>
-        - The schema and query is ready to create products . Just add uploading script and backend route for checkout form so that the backend will get the data and create a new entry in orders. 
-        - Data validation should be implemented on checkout page first and then in backend route that handles this users data Using Zod
-        Create more responsive checkout section
-        -Attach more solid validation in payment info checkout section
+        - Create more responsive checkout section
+        - Implement search and filteration functionality in products page
+        - Create dashboard
+        <h4>Layout of Dashboard</h4>
+        <ul>
+                <li>A dashboard can contains a side bar for navigations and a centered section for each option</li>
+                <li>A dashboard can contain 4 routes orders, form submissions, creating events like offers and coupens</li>
+                <li>A dashboard can also contains a section that contains card showing products and a dynamic route attached to that card to show the details of card , on this details page the card can have input fields that are editable</li>
+        </ul>
+
+        ``` bash
+        Admin Dashboard
+            |__Orders
+            |__Form submissions
+            |__
+            |__
+        ```
+
+        Shadcn ui components:
+        1. tabs
+        2. sheet
+        3. Sidebar
+        4.data table
+
+        
 </section>
 <section>
 </section>

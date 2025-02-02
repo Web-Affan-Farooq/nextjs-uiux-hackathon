@@ -129,17 +129,12 @@ export default {
                                 type: "number",
                                 title: "Quantity"
                             },
-                            // {
-                            //     name: "productWeight",
-                            //     type: "number",
-                            //     title: "Product Weight In Kgs"
-                            // },
                         ]
                     }]
                 }
             ]
         }
-        /* Run this querry to get products: */
+        /* Run this querry to get orders */
         /*
                    *[_type == "order"] {
            _id,
@@ -149,7 +144,7 @@ export default {
           }
          */
 
-        /* After that add the following properties to all the fields */
+        /* After that add the following properties to all the fields (optional) */
         /*     readOnly:true,
             initialValue:"Muhammad affan" */
     ]

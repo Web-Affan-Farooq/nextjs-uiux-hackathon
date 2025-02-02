@@ -1,25 +1,70 @@
 "use client";
 
-import React, { useContext} from 'react';
+import React, {  useEffect, useContext, useState} from 'react';
+import { useRouter } from 'next/navigation';
 import { Product } from '@/@types/Products';
 import toast, {Toaster} from 'react-hot-toast';
 import Image from 'next/image';
 import { CartContext } from '@/context/CartContext';
 import { WishlistContext } from '@/context/WishlistContext';
 import { Button } from '@/components/ui/button';
+import { CartProduct } from '@/@types/CartProduct';
 
-const Section_1 = ({data}: {data:Product}) => {
+const Section_1 = ({data}: {data:Product}) => {// Product
     const [cart, setCart] = useContext(CartContext);
     const [wishList, setWishList] = useContext(WishlistContext);
+    const [count, setCount] = useState(1);
+    const router = useRouter();
+
+    // useEffect(() => {
+
+    //   const selectedProducts = cart.filter((productArray:CartProduct, index:number) => {
+    //     return cart.indexOf(productArray) === index;
+    //   });
+    //   console.log("New list after deduction:" ,selectedProducts);
+
+    // },[cart]);
+        
+
+        // cart.some((cartProducts:CartProduct) => {
+        //     // const [compare] = cartProducts;
+        //     cart.forEach((productMatch:CartProduct) => {
+        //         // const [product] = productMatch;
+        //          return cartProducts[0].product._id === productMatch[0].product._id
+        //     })
+        // })
+
+    // const [counterVisibility, setCounterVisibility] = useState(true);
+
+    // useEffect(() =>{
+    //     console.log("Cart :", cart);        
+    // },[cart]);
 
     const handleAddToCart = () => {
-        setCart((prev) => [...prev, data]);
+        // setCart((prev) => [...prev, data]);
+        /*
+        [
+        [ {
+        product:
+        quant
+        }]
+        ]
+         */
+        setCart([...cart, {
+            product:data,
+            quantity:count,
+        }]);
+
+        // array >array[ { product, quantity}]
+        // console.log(data); 
+
         toast.success("Product Added To Cart Successfully", {
             style: {
                 backgroundColor:"rgba(255,255,255,0.5)",
                 backdropFilter:"blur(20px)",
             }
-        })
+        });
+        router.push("/products");
     }
     const handleAddToWishlist = () => {
         setWishList((prev) => [...prev, data]);
@@ -33,8 +78,6 @@ const Section_1 = ({data}: {data:Product}) => {
 
     return (
         <>
-        <Toaster reverseOrder={false} position="top-left"/>
-
                 <section className='flex flex-row flex-wrap justify-center items-center 2xl:gap-14 xl:gap-12 lg:justify-center lg:gap-10 md:justify-center md:px-0 md:gap-5 sm:justify-start sm:px-[80px] sm:gap-8 max-sm:gap-5 max-sm:justify-start max-sm:px-[28px]'>
 
             <div className=''>
@@ -46,6 +89,25 @@ const Section_1 = ({data}: {data:Product}) => {
                 <br />
                 <div>
                     <span className='px-4 py-2 bg-blue rounded-[60px] text-white font-bold text-[16px]'>$ {data.price} USD</span>
+                </div>
+                <br />
+                <div className='flex flex-row flex-nowrap justify-start items-center gap-5'>
+                <p>Quantity: {count}</p>
+                <div className='flex flex-row flex-nowrap justify-start items-center gap-3'>
+                <button type="button" className=' w-[20px] h-[20px] text-center font-bold text-[20px] rounded-full bg-blue text-white flex flex-row flex-nowrap justify-center items-center' onClick={() => {
+                        setCount(count+1);
+                }}>
+                    <span>+</span> 
+                </button>
+
+                <button type="button" className=' w-[20px] h-[20px] text-center font-bold text-[20px] rounded-full bg-blue text-white flex flex-row flex-nowrap justify-center items-center' onClick={() => {
+                    if(count > 1) {
+                        setCount(count -1)
+                    }
+                }}>
+                    <span>-</span> 
+                </button>
+                </div>
                 </div>
                 <br />
                 <p className='font-normal text-purple'>{data.longDescription[0].children[0].text}</p>
