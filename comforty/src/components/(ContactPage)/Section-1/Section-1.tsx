@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Form from '../Form/Form';
 
 const Section_1 = () => {
     return (
@@ -44,35 +45,7 @@ const Section_1 = () => {
 
                 {/* input container */}
 
-                <form action="/" className='flex flex-col flex-nowrap gap-5'>
-
-                    <div className='w-[393px]'>
-                        <label htmlFor="Your name" className='text-black font-bold text-left' id='name'>Your Name</label><br />
-                        <input type="text" name='name' id='name' placeholder='abc' className='w-full px-[20px] py-[10px] rounded-md' required />
-                    </div>
-
-                    <div className=' w-[393px]'>
-                        <label htmlFor="Enter email" className='text-black font-bold text-left' id='email'>Email Address</label><br />
-                        <input type="email" name='email' id='email' placeholder='abc@gmail.com' className='w-full  px-[20px] py-[10px] rounded-md' required />
-                    </div>
-
-                    <div className=' w-[393px]'>
-                        <label htmlFor="Subject" className='text-black font-bold text-left' id='subject'>Subject</label><br />
-                        <input type="text" name='subject' id='subject' placeholder='subject' className='w-full px-[20px] py-[10px] rounded-md' required />
-                    </div>
-
-                    <div className='w-[393px]'>
-                        <label htmlFor="Enter your message" className='text-black font-bold text-left' id='message'>Message</label><br />
-                        <textarea name="message" id="message" placeholder='abc@gmail.com' className='w-full px-[20px] py-[10px] rounded-md' required></textarea>
-                    </div>
-
-                    <div>
-                        <button type="submit" className='py-[14px] px-[24px] rounded-[8px] bg-blue font-bold text-[16px] text-white max-md:px-[20px] max-md:py-[10px]'>
-                            <span>Submit</span> <span><i className="fa-solid fa-arrow-right"></i></span>
-                        </button>
-                    </div>
-
-                </form>
+                <Form/>
 
             </div>
 

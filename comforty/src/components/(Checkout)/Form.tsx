@@ -326,7 +326,9 @@ const Form = () => {
                     <br />
                     <fieldset>
                         <legend className='text-[15px] text-white px-[20px] py-[6px] rounded-2xl bg-blue'>Payment details</legend>
-
+                        <div className='w-full px-[20px]'>
+                        <span className='text-center text-[40px] font-semibold'>{userData.amountPayable}</span>
+                        </div>
                         <div className='px-5 py-1 flex flex-col gap-3'>
                             <label htmlFor="Enter account number" id='account-number' className='text-[15px] text-gray-500'>Enter account number</label>
                             <input type="text" name='accountNumber' id='account-number' placeholder='Account number' required className='border-2 border-solid border-black rounded-md px-[20px] text-[15px] py-[10px] w-[310px]' onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -371,7 +373,6 @@ const Form = () => {
                     <br />
                     <div className='flex flex-row flex-nowrap justify-start items-center gap-3'>
                         <Button className='text-white bg-blue rounded-md font-bold flex flex-row flex-nowrap text-center text-[16px] gap-2 px-[10px] py-[23px] hover:bg-purple' type={'submit'} onClick={() => {
-                            // setindex(3)
                             // console.log(userData);
                         }}>
                             <span>Confirm payment</span>

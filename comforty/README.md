@@ -338,7 +338,6 @@ Set Discounts & Promotions
         2. sheet
         3. Sidebar
         4.data table
-
         
 </section>
 <section>
