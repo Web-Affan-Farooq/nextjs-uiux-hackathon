@@ -63,18 +63,28 @@ In the root of this project . You can check directory named "sanity-project" tha
 <p>
 Note that separate sanity projects, if created can use <b>Vite</b> as thier default build tool because the user interface of sanity studio uses <strong>React</strong> on frontend along with requiring <b>TailwindCSS</b> but it doesn't installs tailwindCSS and it's configurations for vite project automatically. Therefore I've followed the following link to <a href="https://tailwindcss.com/docs/guides/vite">set up tailwindCSS in vite project</a> . Plus I've also replaced the <strong>content</strong> option in it. Follow the initialization steps and configure it manually.  
 </p>
-<p>Another loop hole when creating the sanity with vite is, the <strong>Create Sanity Package</strong> doesnot uses <strong>.env</strong> file to store secrets key and credentials .I've also followed
-<a href="https://youtu.be/EQ3Htw6Z0PY?si=nK3e18gHz5wNlyFG">This guide to configure enviroment variables.</a></p>
-<p>I'm using typescript in vite therefore I have also given type definitions of enviroment by creating <strong>vite-env.d.ts</strong> file <a href="./sanity-project/vite-env.d.ts">Check this out</a>
-so that it loads my enviroment variables globally in vite project.
+<p>Another loop hole when creating the sanity with vite is, the <strong>Create Sanity Package</strong> doesnot uses <strong>.env</strong> file, so create it manually and add your env variable with 
+<code>SANITY_STUDIO_</code> prefix so that it can be loaded in sanity project globally
+<p>I'm using typescript in vite therefore I have also given type definitions of enviroment by creating <strong>vite-env.d.ts</strong> file. Give a type definations to env variables so that it have a defined type so that it loads my sanity enviroment variables globally in vite project.
+
+``` javascript
+interface ImportMetaEnv {
+    readonly SANITY_PROJECT_PROJECT_ID: string;
+    readonly SANITY_PROJECT_SANITY_DATASET: string;
+    // Add other environment variables as needed
+  }
+  
+  interface ImportMeta {
+    readonly env: ImportMetaEnv;
+  }
+```
 </p>
 
 <h3>Important Note:</h3>
 <ol>
-<li>Make sure to secure the secrets using .env file by following <a href="https://youtu.be/EQ3Htw6Z0PY?si=nK3e18gHz5wNlyFG">this guide</a></li>
+<li>Make sure to secure the secrets using .env file.</li>
 <li>Make sure that this line <code>.env*</code> is added in your .gitignore file in sanity project </li>
-<li>Make sure that autoUpdate option in sanity.config.ts is set to false
-up</li>
+<li>Make sure that autoUpdate option in sanity.config.ts is set to false to prevent unnessessary package replacement during build</li>
 <li>Make sure to set up tailwindcss with vite manually by <a href="">Following this guide</a> </li>
 </ol>
 

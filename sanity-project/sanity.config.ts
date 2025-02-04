@@ -7,8 +7,8 @@ export default defineConfig({
   name: 'default',
   title: 'comforty-ecommerce',
 
-  projectId: process.env.VITE_PROJECT_ID || '4nyqx9qe',
-  dataset: process.env.VITE_SANITY_DATASET || 'production',
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID || '',
+  dataset: process.env.SANITY_STUDIO_SANITY_DATASET || '',
 
   plugins: [structureTool(), visionTool()],
 
