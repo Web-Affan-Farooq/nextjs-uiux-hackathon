@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Card from '@/components/Cards/Card-products/Card';
-import { defineQuery } from 'next-sanity';
 import sanityClient from '@/lib/sanity';
 import { Product } from '@/@types/Products';
 
@@ -24,7 +23,7 @@ const Sofas = async () => {
     
 // },[]);
 
-const querry = defineQuery(
+const querry =
   `
   *[_type == "product" && category == "Sofas"] {
   _id,
@@ -51,7 +50,6 @@ const querry = defineQuery(
   quantityAvailable,
   }
       `
-);
 
   const response = await sanityClient.fetch(querry);
   const data = await response;

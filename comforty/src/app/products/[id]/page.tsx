@@ -1,7 +1,6 @@
 import React from 'react';
 import Section_1 from '@/components/(ProductDetails)/Section-1/Section-1';
 import Section_2 from '@/components/(ProductDetails)/Section-2/Section-2';
-import { defineQuery } from 'next-sanity';
 import { Product } from '@/@types/Products';
 import sanityClient from '@/lib/sanity';
 
@@ -9,7 +8,7 @@ import sanityClient from '@/lib/sanity';
 const DynamicProduct =  async ({params}:{params:Promise<{id:string}>}) => {
 
   const {id} = await params;
-  const querry = defineQuery(
+  const querry = 
     `
     *[_type == "product" && _id=='${id}'] {
 _id,
@@ -34,8 +33,8 @@ ratings,
 ratingsInCount,
 quantityAvailable,
 }
-    `
-  )
+    `;
+    
   const response = await sanityClient.fetch(querry);
   const data:Product[] = await response;
 

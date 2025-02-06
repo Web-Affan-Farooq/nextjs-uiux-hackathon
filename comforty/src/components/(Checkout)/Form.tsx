@@ -9,7 +9,6 @@ import ShipmentInfoCheckoutSchema from '@/validations/ShipmentInfoCheckout';
 import PaymentInfoCheckoutSchema from '@/validations/PaymentInfoCheckout';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
-import { type ZodError } from 'zod';
 
 interface Package {
     product_name: string;
@@ -131,7 +130,7 @@ const Form = () => {
             });
             setindex(2)
         }
-        catch (err: ZodError | any) {
+        catch (err:any) {
             toast.error(JSON.parse(err)[0].message);
         }
     }
@@ -157,7 +156,7 @@ const Form = () => {
             });
             setindex(3);
         }
-        catch (err: ZodError | any) {
+        catch (err:any) {
             toast.error(JSON.parse(err)[0].message);
         }
     }
@@ -183,7 +182,7 @@ const Form = () => {
                 accountNumber: PaymentInfoCheckoutSchema.parse(data).accountnumber
             });
             setLoad(true);
-        } catch (err: ZodError | any) {
+        } catch (err:any) {
             toast.error(JSON.parse(err)[0].message)
         }
     }

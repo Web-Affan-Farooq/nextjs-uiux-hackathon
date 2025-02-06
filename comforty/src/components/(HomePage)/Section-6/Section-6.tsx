@@ -1,11 +1,10 @@
 import React from 'react';
 import Card from '@/components/Cards/Card-products/Card';  //importing products card
-import { defineQuery } from 'next-sanity';
 import sanityClient from "@/lib/sanity";
 import { Product } from '@/@types/Products';
 
 const Section_6 = async () => {
-  const querry =defineQuery(
+  const querry =
     `
 *[_type == "product" && tags[2] == 'Top rated' ] {
   _id,
@@ -33,8 +32,6 @@ const Section_6 = async () => {
   tags,
   }
     `
-  );
-
   const response = await sanityClient.fetch(querry);
   const data:Product[] = await response;
 

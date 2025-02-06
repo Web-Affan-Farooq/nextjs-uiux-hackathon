@@ -1,11 +1,10 @@
 import React from 'react';
 import Card from '@/components/Cards/Card-products/Card';  // importing products card
 import "./scroll.css";
-import { defineQuery } from 'next-sanity';
 import sanityClient from "@/lib/sanity";
 import { Product } from '@/@types/Products';
 
-const querry =defineQuery(
+const querry =
   `
   *[_type == "product" && tags[0] == 'Featured' ] {
 _id,
@@ -34,7 +33,6 @@ weight,
 tags,
 }
   `
-);
 
 const Section_3 = async () => {
   const response = await sanityClient.fetch(querry);
