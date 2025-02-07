@@ -1,17 +1,16 @@
 "use client";
 
-import { OptionContext } from '@/context/Option';
-import React, { useContext } from 'react';
+import React from 'react';
 
 // importing sections:
 import FormSubmissions from './Form-submissions/Section';
+import { useRouter } from 'next/navigation';
 
 const MainSection = () => {
-    const [option] = useContext(OptionContext);
-
-    if(option === "Form Submissions") {
-        return (<FormSubmissions/>)
-    }
+    const router = useRouter();
+    console.log(router);
+    
+    return (<FormSubmissions />)
 }
 
 export default MainSection

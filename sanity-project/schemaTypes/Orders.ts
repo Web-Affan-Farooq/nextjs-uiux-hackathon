@@ -128,12 +128,18 @@ export default {
                                 name: "productQuantityRequired",
                                 type: "number",
                                 title: "Quantity"
-                            },
+                            }
                         ]
                     }]
                 }
             ]
         }
+        /*
+        
+       
+        
+        
+         */
         /* Run this querry to get orders */
         /*
                    *[_type == "order"] {

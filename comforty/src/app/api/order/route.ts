@@ -1,8 +1,7 @@
-// ------------->  Backend route for handling user info coming from checkout form
-
+import sanityClient from "@/lib/sanity";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-import sanityClient from "@/lib/sanity";
+import { createKey } from "@/lib/keys";
 
 interface Checkout {
     name: string;
@@ -24,16 +23,28 @@ interface Checkout {
         product_name: string;
         id: string;
         quantity: number
-      },
-      {
-        product_name: string;
-        id:string;
-        quantity: number;
       }
     ]
   }
 
+  interface Package {
+    productName:string;
+    productQuantityRequired:number;
+    productId:string;
+    _key:string;
+  }
+
 const createOrder = async (data:Checkout) => { // take data from parameters
+    const productToBeSent:Package[]= [];
+
+    data.packages.map((p:{product_name:string; id:string; quantity:number}, index:number) => {
+        productToBeSent.push({
+            productName:p.product_name,
+            productId:p.id,
+            productQuantityRequired:p.quantity,
+            _key:createKey(), // --> return rendomly generated string
+        });
+    })
 
     let order = {
         _type:"order",
@@ -58,14 +69,13 @@ const createOrder = async (data:Checkout) => { // take data from parameters
             fullName: data.name,
         },
         packages: {
-            // products: data.packages.map((product) => { return product}),
-            products:data.packages
+            products:productToBeSent,
         }
     }
-    
+    // console.log(order);
     try {
         const response = await sanityClient.create(order);
-        // console.log("Created at :", response._createdAt);
+        console.log("Created at :", response._createdAt);
         return "success";
     } catch (err) {
         console.log(err);
@@ -73,18 +83,14 @@ const createOrder = async (data:Checkout) => { // take data from parameters
     }
 }
 
-export const POST = async (req: NextRequest) => {
-    const data:Checkout= await req.json();
-    // console.log(data);
-    let response = await createOrder(data);
+export const POST = async (req:NextRequest) => {
+    const data = await req.json();
+    // console.log(data)
+    const response = await createOrder(data);
 
     if(response === "success") {
-        // console.log("Data added to orders successfully");
-        // NextResponse.redirect("/products");
         return NextResponse.json({ message: "Order placed successfully" });
     }else {
-        // console.log("Error while processing");
-        // NextResponse.redirect("/products");
         return NextResponse.json({ message: "Please refresh the page and order again" });
     }   
 }

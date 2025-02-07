@@ -1,0 +1,20 @@
+// ------------->  Backend route for handling user info coming from checkout form
+
+import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
+import sanityClient from "@/lib/sanity";
+
+
+
+
+
+
+export const POST = async (req:NextRequest) => {
+    const data = await req.json();
+    console.log(data);
+    // let response = await createOrder(data);
+
+    return NextResponse.json({message:"order confirmed"});
+
+}
+
