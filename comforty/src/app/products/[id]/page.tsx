@@ -32,6 +32,7 @@ discount,
 ratings,
 ratingsInCount,
 quantityAvailable,
+tags,
 }
     `;
     
@@ -60,7 +61,7 @@ quantityAvailable,
       <br /><br />
       <Section_1 data={data[0]}/>
       <br /><br />
-      <Section_2/>
+      <Section_2 data={data[0]}/>
       <br /><br /><br /><br />
     </div>
   )

@@ -3,54 +3,41 @@
 import React, { useEffect, useState } from 'react';
 import { Order } from '@/@types/Orders';
 
-const OrderDetails = ({data}:{data:Order}) => {
-    const [completedOrder, setcompletedOrder] = useState(false);
-    const [rejectedOrder, setrejectedOrder] = useState(false);
-    
-    /*
-    list: ["Completed Successfully", "Rejected", "Processing", "Delivered"],
-     */
-    useEffect(() => {
-      const getData = async () => {
-          try {
-              const response = await fetch("/api/orders/update", {
-                method:"PATCH",
-                headers: {
-                  "Content-Type":"application/json"
-                },
-                body:JSON.stringify({id:data._id, method:"Rejected"})
-              });
-          } catch (err) {
-              console.error(err);       
-          }
-      }
-      if(rejectedOrder) {
-        getData()
-      }
-      getData();
-  },[rejectedOrder]);
+const OrderDetails = ({ data }: { data: Order }) => {
+  const [completedOrder, setcompletedOrder] = useState(false);
+  const [rejectedOrder, setrejectedOrder] = useState(false);
 
-    useEffect(() => {
-        const getData = async () => {
-            try {
-                const response = await fetch("/api/orders/update", {
-                  method:"PATCH",
-                  headers: {
-                    "Content-Type":"application/json"
-                  },
-                  body:JSON.stringify({id:data._id, method:"Completed Successfully"})
-                });
-            } catch (err) {
-                console.error(err);       
-            }
-        }
-        if(completedOrder) {
-          getData();
-        }
-    },[completedOrder]);
+  /*
+  list: ["Completed Successfully", "Rejected", "Processing", "Delivered"],
+   */
+  const getData = async (status:string) => {
+    try {
+      const response = await fetch("/api/orders/update", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ id: data._id, method: status })
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  useEffect(() => {
+    if (rejectedOrder) {
+      getData("Rejected");
+    }
+  }, [rejectedOrder, data._id]);
+
+  useEffect(() => {
+    if (completedOrder) {
+      getData("Completed Successfully");
+    }
+  }, [completedOrder, data._id]);
 
   return (
-<div className=''>
+    <div className=''>
       {/* <Order_details/> */}
       <div className='bg-white rounded-md p-3 break'>
 
@@ -127,18 +114,18 @@ const OrderDetails = ({data}:{data:Order}) => {
           </div>
           <br />
           <div className='break-all flex flex-row flex-wrap justify-start items-start gap-3'>
-            <button type="button" className='bg-blue-400 font-bold px-[20px] py-[10px] rounded-md' onClick={(e:React.MouseEvent<HTMLButtonElement>) => {
-                setcompletedOrder(!completedOrder);
+            <button type="button" className='bg-blue-400 font-bold px-[20px] py-[10px] rounded-md' onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+              setcompletedOrder(!completedOrder);
             }}>Completed</button>
-            <button type="button" className='bg-blue-400 font-bold px-[20px] py-[10px] rounded-md' onClick={(e:React.MouseEvent<HTMLButtonElement>) => {
-                setrejectedOrder(!rejectedOrder);
+            <button type="button" className='bg-blue-400 font-bold px-[20px] py-[10px] rounded-md' onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+              setrejectedOrder(!rejectedOrder);
             }}>Reject</button>
           </div>
 
         </div>
       </div>
 
-    </div>  )
+    </div>)
 }
 
 export default OrderDetails

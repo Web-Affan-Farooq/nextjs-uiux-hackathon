@@ -28,7 +28,9 @@ const Orders = async () => {
 
     const calculateSum = () => {
         let sum = 0;
-        response.map((data: Order) => sum += parseInt(data.paymentInfo.amountPayable.replace("$", "")));
+        response.map((data: Order) => {
+            return sum += parseInt(data.paymentInfo.amountPayable.replace("$", ""))
+        });
         return sum;
     }
 

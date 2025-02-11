@@ -64,28 +64,28 @@ const Form = () => {
     return (
         <form className='flex flex-col flex-nowrap gap-5' onSubmit={handleFormSubmission}>
 
-            <div className='w-[393px] border-2 border-solid border-black'>
+            <div className='w-[393px]  '>
                 <label htmlFor="Your name" className='text-black font-bold text-left' id='name'>Your Name</label><br />
                 <input type="text" name='name' id='name' placeholder='Joe doe' className='w-full px-[20px] py-[10px] rounded-md' required minLength={10} maxLength={30} onChange={(e:React.ChangeEvent<HTMLInputElement>) => {
                     setuserData({...userData, name:e.target.value});
                 }}/>
             </div>
 
-            <div className=' w-[393px] border-2 border-solid border-black'>
+            <div className=' w-[393px]  '>
                 <label htmlFor="Enter email" className='text-black font-bold text-left' id='email'>Email Address</label><br />
                 <input type="email" name='email' id='email' placeholder='abc@gmail.com' className='w-full  px-[20px] py-[10px] rounded-md' required minLength={8} maxLength={30} onChange={(e:React.ChangeEvent<HTMLInputElement>) => {
                     setuserData({...userData, email:e.target.value})
                 }}/>
             </div>
 
-            <div className=' w-[393px] border-2 border-solid border-black'>
+            <div className=' w-[393px]  '>
                 <label htmlFor="Subject" className='text-black font-bold text-left' id='subject'>Subject</label><br />
                 <input type="text" name='subject' id='subject' placeholder='Complaining about payment system' className='w-full px-[20px] py-[10px] rounded-md' required minLength={10} maxLength={100} onChange={(e:React.ChangeEvent<HTMLInputElement>) => {
                     setuserData({...userData, subject:e.target.value});
                 }}/>
             </div>
 
-            <div className='w-[393px] border-2 border-solid border-black'>
+            <div className='w-[393px]  '>
                 <label htmlFor="Enter your message" className='text-black font-bold text-left' id='message'>Message</label><br />
                 <textarea name="message" id="message" placeholder="With due respect ..." className='w-full px-[20px] py-[10px] rounded-md' minLength={30} maxLength={700} required onChange={(e:React.ChangeEvent<HTMLTextAreaElement>) =>{
                     setuserData({...userData, message:e.target.value});

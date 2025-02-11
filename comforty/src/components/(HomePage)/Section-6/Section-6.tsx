@@ -39,10 +39,10 @@ const Section_6 = async () => {
     <section className=''>
         <h1 className='text-[32px] text-purple font-semibold text-center'>Our Toprated Products</h1>
         <br /><br />
-        <div className='flex flex-row flex-wrap gap-7 max-sm:gap-0 justify-center items-center w-[80vw] m-auto'>
+        <div className='flex flex-row flex-wrap gap-7 max-sm:gap-1 justify-center items-center w-[80vw] m-auto max-sm:w-full'>
             {
               data.map((product:Product, index:number) => {
-                return <Card image={product.image.asset.url} name={product.productName} price={product.price} link={product._id} key={index}/>
+                return <Card data={product} key={index}/>
               })
             }
         </div>     

@@ -48,6 +48,7 @@ const querry =
   ratingsInCount,
   weight,
   quantityAvailable,
+  tags,
   }
       `
 
@@ -60,11 +61,11 @@ const querry =
                 <h1 className='text-[32px] text-purple font-semibold'>Sofas</h1>
             </div>
             <br />
-            <div className='flex flex-row flex-wrap gap-7 max-sm:gap-0 justify-center items-center w-[80vw] m-auto'>
+            <div className='flex flex-row flex-wrap gap-7 max-sm:gap-1 justify-center items-center w-[80vw] m-auto max-sm:w-full'>
 
-                {data.map((product:Product) => {
+                {data.map((product:Product, index:number) => {
                     return (
-                        <Card image={product.image.asset.url} name={product.productName} price={product.price} link={product._id} key={product._id}/>
+                        <Card data={product} key={index}/>
                     )
                 })}
             </div>

@@ -23,6 +23,7 @@ export interface Product {
 ratings:number;
 ratingsInCount:number;
 shortDescription:string;
-weight:string;
+weight:number;
 _id:string;
+tags:string[];
 }

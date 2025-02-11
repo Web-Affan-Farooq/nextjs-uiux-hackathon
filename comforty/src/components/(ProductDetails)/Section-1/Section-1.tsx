@@ -14,6 +14,7 @@ const Section_1 = ({ data }: { data: Product }) => {// Product
     const [wishList, setWishList] = useContext(WishlistContext);
     const [count, setCount] = useState(1);
     const router = useRouter();
+    
 
     // useEffect(() => {
 

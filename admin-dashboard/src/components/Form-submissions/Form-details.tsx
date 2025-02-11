@@ -26,7 +26,7 @@ const Form_details = ({data}:{data:FormData}) => {
             <p className='break-all'>{data.customerMessage}</p>
             </div>
         </div>
-        <ComposeEmail/>
+        <ComposeEmail email={data.customerEmail}/>
     </div>
   )
 }

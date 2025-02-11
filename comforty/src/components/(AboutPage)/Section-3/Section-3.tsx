@@ -19,8 +19,6 @@ const Section_3 = () => {
           <p className='font-inter font-normal leading-[27px] text-[18px]'>$99.00</p>
         </div>
         <div className='flex flex-row flex-wrap gap-7 justify-center items-center w-auto'>
-        <Card image={"/images/section-3-about/2.svg"} name='Product name' price="$20" />
-        <Card image={"/images/section-3-about/3.svg"} name='Product name' price="$50" />
         </div>
       </div>
     </section>

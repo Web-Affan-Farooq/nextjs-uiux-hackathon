@@ -4,18 +4,18 @@ import Link from 'next/link';
 import Green_label from '../../Labels/Green-label';
 import Orange_label from '../../Labels/Orange-label';
 import { Button } from '../../ui/button';
-
-interface Card {
-    name: string;
-    image: string;
-    link: string;
-    price: number;
-}
+import { Product } from '@/@types/Products';
 
 
-const Card = ({ image, name, price, link }: Card) => {
+const Card = ({data}:{data:Product}) => {
+
+    // Because some products have no tags then assign them a blank array so that it will always return true or false
+    if(data.tags === null) {
+        data.tags = []
+    }
+    
     return (
-        <div className='group hover:scale-[1.075] transition-all duration-500 ease-in-out shadow-lg rounded-md 2xl:w-[312px] xl:w-[312px] lg:w-[260px] md:w-[250px] sm:w-[200px] max-sm:w-[160px] px-[10px] py-[5px] whitespace-normal overflow-hidden'>
+        <div className='group hover transition-all duration-500 ease-in-out shadow-lg rounded-md 2xl:w-[312px] xl:w-[312px] lg:w-[260px] md:w-[250px] sm:w-[200px] max-sm:w-[200px] px-[10px] py-[5px] whitespace-normal overflow-hidden'>
             {/* <div
                 className=' sticky bg-white text-center font-semibold text-[15px] text-black w-auto px-[5px] h-[25px] rounded-md transition-transform duration-100 ease-linear'> 
                 20% off
@@ -23,12 +23,17 @@ const Card = ({ image, name, price, link }: Card) => {
 
             {/* <Orange_label/> */}
             {/* <Green_label/> */}
-            <Image src={image} alt='furniture image' width={240} height={240} className='rounded-md w-[240px] h-[240px] max-md:w-[180px] max-md:h-[180px] max-sm:w-[160px] max-sm:h-[160px]' />
-            <h1 className='leading-[21px] w-full my-[5px] max-md:h-[70px] max-sm:h-[60px] text-[16px] font-semibold group-hover:text-blue transition-all max-sm:text-[14px]'>{name}</h1> {/* maximum limit 62 characters */}
+            {
+                data.tags.includes("New Collections")?<Green_label/>:<></>
+            }
+
+
+            <Image src={data.image.asset.url} alt='furniture image' width={240} height={240} className='rounded-md w-[240px] h-[240px] max-md:w-[180px] max-md:h-[180px] max-sm:w-[160px] max-sm:h-[160px]' />
+            <h1 className='leading-[21px] w-full my-[5px] max-md:h-[70px] max-sm:h-[60px] text-[16px] font-semibold group-hover:text-blue transition-all max-sm:text-[14px]'>{data.productName}</h1> {/* maximum limit 62 characters */}
 
             <div className='flex flex-row flex-nowrap justify-between items-center p-2'>
-                <span className='text-purple text-[18px] font-bold'>${price}</span>
-                <Link href={"/products/" + link}>
+                <span className='text-purple text-[18px] font-bold'>${data.price}</span>
+                <Link href={"/products/" + data._id}>
                     <Button className='sm:w-[30px] bg-blue sm:h-[30px] px-[10px] py-[10px] hover:bg-purple transition-all'>
                         <div>
                             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" className='w-[20px] h-[20px] sm:h-[30px] object-contain'>

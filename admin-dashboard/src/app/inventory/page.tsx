@@ -3,11 +3,12 @@ import Image from 'next/image';
 import sanityClient from '@/lib/sanity';
 import Card_Products from '@/components/Cards/Card-Products';
 import { Product } from '@/@types/Products';
+import MainPage from '@/components/Products/MainPage';
 
 const Page = async () => {
   const querry = 
   `
-  *[_type == "product" && category == "Chairs"] {
+  *[_type == "product"][0..9] {
 _id,
 image {
 asset -> {
@@ -35,16 +36,11 @@ weight,
 
 const response = await sanityClient.fetch(querry);
 const data = await response; 
+
  return (
     <div>
         <h1 className='text-[24px] font-bold'>Inventory</h1>
-        <div className='flex flex-row flex-wrap justify-center items-center gap-3'>
-        {
-          data.map((product:Product, index:number) => {
-            return <Card_Products data={product} key={index}/>
-          })
-        }
-        </div>
+        <MainPage/>
     </div>
   )
 }

@@ -4,6 +4,6 @@ import { permission } from "@/lib/permissions";
 
 export const DELETE = async (req:NextRequest) => {
     const data = await req.json();
-    console.log("delete product api response");
+    console.log("delete event api response");
     return NextResponse.json({message:"Form submitted successfully"});
 }

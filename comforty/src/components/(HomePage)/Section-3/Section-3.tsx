@@ -55,7 +55,7 @@ const Section_3 = async () => {
             <Card image={"/products/3.svg"} name='Product name' price="30" link={""}/> */}
             {
               data.map((product:Product, index:number) => {
-                return <Card image={product.image.asset.url} name={product.productName} price={product.price} link={product._id} key={index}/>
+                return <Card data={product} key={index}/>
               })
             }
           </div>

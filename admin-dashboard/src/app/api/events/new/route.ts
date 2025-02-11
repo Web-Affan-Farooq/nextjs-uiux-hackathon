@@ -2,8 +2,8 @@ import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { permission } from "@/lib/permissions";
 
-export const DELETE = async (req:NextRequest) => {
+export const POST = async (req:NextRequest) => {
     const data = await req.json();
-    console.log("delete product api response");
+    console.log("New event api response");
     return NextResponse.json({message:"Form submitted successfully"});
 }

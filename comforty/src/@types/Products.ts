@@ -25,4 +25,5 @@ ratingsInCount:number;
 shortDescription:string;
 weight:string;
 _id:string;
+tags:string[];
 }

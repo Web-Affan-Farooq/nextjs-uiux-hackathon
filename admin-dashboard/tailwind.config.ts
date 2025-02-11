@@ -13,6 +13,8 @@ export default {
   			rubik: 'var(--font-rubik)'
   		},
   		colors: {
+			customgreen: '#029FAE',
+			orangelabel: '#F5813F',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

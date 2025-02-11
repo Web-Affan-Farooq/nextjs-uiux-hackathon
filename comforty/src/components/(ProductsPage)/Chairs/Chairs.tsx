@@ -44,6 +44,7 @@ ratings,
 ratingsInCount,
 quantityAvailable,
 weight,
+tags,
 }
         `
 
@@ -101,15 +102,15 @@ weight,
 
 
             <section className=''>
-                <div className='flex flex-row py-[40px] flex-nowrap justify-between 2xl:px-[300px] xl:px-[100px] lg:px-[100px] md:px-[50px] sm:px-[50px] max-sm:px-[50px] items-center'>
-                    <h1 className='text-[32px] text-purple font-semibold'>Modern Chairs</h1>
+                <div className='flex flex-row py-[40px] flex-nowrap justify-between 2xl:px-[300px] xl:px-[100px] lg:px-[100px] md:px-[50px] sm:px-[50px] max-sm:px-[0px] max-sm:justify-between items-center'>
+                    <h1 className='text-[32px] text-purple font-semibold mx-10'>Modern Chairs</h1>
                 </div>
                 <br />
-                <div className='flex flex-row flex-wrap gap-7 max-sm:gap-0 justify-center items-center w-[80vw] m-auto'>
+                <div className='flex flex-row flex-wrap gap-7 max-sm:gap-1 justify-center items-center w-[80vw] m-auto max-sm:w-full'>
 
-                    {data.map((product: Product) => {
+                    {data.map((product: Product, index:number) => {
                         return (
-                            <Card image={product.image.asset.url} name={product.productName} price={product.price} link={product._id} key={product._id}/>
+                            <Card data={product} key={index}/>
                         )
                     })}
                 </div>
