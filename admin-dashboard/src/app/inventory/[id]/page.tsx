@@ -3,6 +3,7 @@ import Image from 'next/image';
 import sanityClient from '@/lib/sanity';
 import Section_1 from '@/components/ProductDetails/Section-1';
 import Section_2 from '@/components/ProductDetails/Section-2';
+import { DemoProduct } from '@/lib/DemoProduct';
 
 const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;

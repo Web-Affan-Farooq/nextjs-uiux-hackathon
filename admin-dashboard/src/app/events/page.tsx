@@ -4,7 +4,7 @@ import Image from 'next/image';
 const Events = () => {
   return ( 
     <div>
-        Creating offers soon ..
+      <h1 className='text-[30px] font-bold'>Sales And Offers :</h1>
     </div>
   )
 }

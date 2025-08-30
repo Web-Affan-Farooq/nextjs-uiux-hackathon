@@ -3,7 +3,11 @@ import { NextResponse } from "next/server";
 import { permission } from "@/lib/permissions";
 import { Product } from "@/@types/Products";
 import sanityClient from "@/lib/sanity";
+import axios from "axios";
 
+const updateImage = async (id:string) => {
+    // const data = await sanityClient.assets.upload();
+}
 const editProductInDatasets = async (data: Product) => {
     const productData = {
         image: {
@@ -38,6 +42,9 @@ const editProductInDatasets = async (data: Product) => {
 }
 export const PATCH = async (req: NextRequest) => {
     const data = await req.json();
-    console.log("edit product api response");
+    console.log(data);
+    // const response = await editProductInDatasets(data);
+    // updateImage(data.image.asset.id)
+    // console.log("edit product api response");
     return NextResponse.json({ message: "Form submitted successfully" });
 }

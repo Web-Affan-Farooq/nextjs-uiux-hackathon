@@ -80,6 +80,9 @@ This section contains small cards that carry information about each order. Compl
 #### Form submissions:
 Contains record of form submissions from contact page.
 
+#### Schedule (implemented soon) :
+A visual planner for scheduling and managing admin panel back office work
+
 
 #### Shadcn ui components for this:
 
@@ -90,8 +93,9 @@ Contains record of form submissions from contact page.
 
 ## Future updates:
 
-- Integrate emailing for rejected orders
+- Integrate emailing service for rejected orders
 - Integrate limit fetch function
+- Create scheduling option
 
 code for implementing limit fetch:
 

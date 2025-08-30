@@ -73,7 +73,7 @@ const Main_section = () => {
                             <div className='flex flex-col flex-nowrap justify-center items-center gap-1'>
                                 {
                                     wishList.map((wishListProduct: Product, index: number) => {
-                                        return <Card image={wishListProduct.image.asset.url} title={wishListProduct.productName} description={wishListProduct.shortDescription} id={wishListProduct._id} key={index} />
+                                        return <Card image={wishListProduct.image} title={wishListProduct.name} description={wishListProduct.short_description} id={String(wishListProduct.id)} key={index} />
                                     })
                                 }
                             </div>

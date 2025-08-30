@@ -63,11 +63,11 @@ const CartContextProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const groupedList = cart.reduce((accumulator: CartProduct[], item: CartProduct) => {
-      let existingProduct = accumulator.find((product) => product.product._id === item.product._id);
+      let existingProduct = accumulator.find((product) => product.product.id === item.product.id);
 
       if (existingProduct) {
         return accumulator.map((product) =>
-          product.product._id === item.product._id
+          product.product.id === item.product.id
             ? { ...product, quantity: product.quantity + item.quantity }
             : product
         );

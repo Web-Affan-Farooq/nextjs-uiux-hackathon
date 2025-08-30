@@ -48,8 +48,8 @@ const Form = () => {
         cart.forEach((cartProduct: CartProduct) => {
             const {product, quantity} = cartProduct;
             array.push({
-                product_name:product.productName,
-                id: product._id,
+                product_name:product.name,
+                id: String(product.id),
                 quantity: quantity,
             })
         });

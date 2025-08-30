@@ -2,39 +2,51 @@ import React from 'react';
 import Card from '@/components/Cards/Card-simple/Card';
 import { Product } from '@/@types/Products';
 import Link from 'next/link';
+import { supabase } from '@/lib/supabase';
 import sanityClient from '@/lib/sanity';
 
-const Section_2 = async ({data}:{data:Product}) => {
+const getData = async (cat:string) => {
+  const { data, error } = await supabase.from("Products").select("*").eq("category", cat);
+  if (error) {
+    console.log(error.message)
+  }
+  console.log(data);
   
-  const q = `*[_type == "product" && category == "${data.category}"] {
-  _id,
-  image {
-  asset -> {
-  url,
-  _id,
-  }
-  },
-  productName,
-  shortDescription,
-  longDescription[]{
-  style,
-  children[] {
-  text,
-  }
-  },
-  category,  
-  price,
-  discount,
-  ratings,
-  ratingsInCount,
-  quantityAvailable,
-  weight,
-  tags,
-  }
-          `;
+  return data;
+}
+const Section_2 = async ({data}:{data:Product}) => {
+  // const q = `*[_type == "product" && category == "${data.category}"] {
+  // _id,
+  // image {
+  // asset -> {
+  // url,
+  // _id,
+  // }
+  // },
+  // productName,
+  // shortDescription,
+  // longDescription[]{
+  // style,
+  // children[] {
+  // text,
+  // }
+  // },
+  // category,  
+  // price,
+  // discount,
+  // ratings,
+  // ratingsInCount,
+  // quantityAvailable,
+  // weight,
+  // tags,
+  // }
+  //         `;
 
-  const response = await sanityClient.fetch(q);
-const productsData = await response;
+//   const response = await sanityClient.fetch(q);
+// const productsData = await response;
+
+const productsData = await getData(data.category);
+// console.log(productsData);
 
   return (
     <section className='py-10'>
@@ -52,7 +64,7 @@ const productsData = await response;
 
         <div className=' flex flex-row flex-wrap justify-center items-center gap-[20px] py-[20px] max-md:gap-[10px] max-sm:gap-[5px]'>
             {
-              productsData.map((product:Product, index:number) => {
+              productsData?.map((product:Product, index:number) => {
                 return <Card data={product} key={index}/>
               })
             }

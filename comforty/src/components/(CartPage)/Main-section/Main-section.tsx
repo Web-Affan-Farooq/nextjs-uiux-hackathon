@@ -48,7 +48,7 @@ const Main_section = () => {
                                     cart.map((cartProduct:CartProduct, index:number) => {
                                         const {product, quantity} = cartProduct;
 
-                                        return  <Card image={product.image.asset.url} title={product.productName} description={product.shortDescription} id={product._id} key={index} quantity={quantity}/>
+                                        return  <Card image={product.image} title={product.name} description={product.short_description} id={String(product.id)} key={index} quantity={quantity}/>
                                     })
                             }
                             </div>

@@ -1,39 +1,49 @@
 import React from 'react';
 import Card from '@/components/Cards/Card-products/Card';  //importing products card
-import sanityClient from "@/lib/sanity";
+// import sanityClient from "@/lib/sanity";
 import { Product } from '@/@types/Products';
+import { supabase } from '@/lib/supabase';
+
+const getData = async () => {
+  const { data, error } = await supabase.from("Products").select("*").contains("tags", ["Featured"]);
+  if (error) {
+    console.log(error.message)
+  }
+  return data;
+}
 
 const Section_6 = async () => {
-  const querry =
-    `
-*[_type == "product" && tags[2] == 'Top rated' ] {
-  _id,
-  image {
-    asset -> {
-      url,
-      _id,
-    }
-  },
-  productName,
-  shortDescription,
-  longDescription[]{
-    style,
-    children[] {
-      text,
-    }
-  },
-  category,  
-  price,
-  discount,
-  ratings,
-  ratingsInCount,
-  quantityAvailable,
-  weight,
-  tags,
-  }
-    `
-  const response = await sanityClient.fetch(querry);
-  const data:Product[] = await response;
+//   const querry =
+//     `
+// *[_type == "product" && tags[2] == 'Top rated' ] {
+//   _id,
+//   image {
+//     asset -> {
+//       url,
+//       _id,
+//     }
+//   },
+//   productName,
+//   shortDescription,
+//   longDescription[]{
+//     style,
+//     children[] {
+//       text,
+//     }
+//   },
+//   category,  
+//   price,
+//   discount,
+//   ratings,
+//   ratingsInCount,
+//   quantityAvailable,
+//   weight,
+//   tags,
+//   }
+//     `
+//   const response = await sanityClient.fetch(querry);
+//   const data:Product[] = await response;
+const data= await getData();
 
   return (
     <section className=''>
@@ -41,7 +51,7 @@ const Section_6 = async () => {
         <br /><br />
         <div className='flex flex-row flex-wrap gap-7 max-sm:gap-1 justify-center items-center w-[80vw] m-auto max-sm:w-full'>
             {
-              data.map((product:Product, index:number) => {
+              data?.map((product:Product, index:number) => {
                 return <Card data={product} key={index}/>
               })
             }

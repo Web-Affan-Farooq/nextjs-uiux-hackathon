@@ -1,7 +1,7 @@
 "use client";
 
 import React ,{useContext} from "react";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import Image from "next/image";
 import { Product } from "@/@types/Products";
 import { WishlistContext } from "@/context/WishlistContext";
@@ -18,7 +18,7 @@ const Card = ({ image, title, id, description }: Card) => {
     const [wishList, setWishlist ] = useContext(WishlistContext);
 
     const handleRemoveFromWishlist = (productId:string) => {
-        const requiredIndex = wishList.findIndex((product:Product) => product._id === productId);
+        const requiredIndex = wishList.findIndex((product:Product) => String(product.id) === productId);
         wishList.splice(requiredIndex, 1);
         setWishlist([...wishList]);
         // console.log(`Product deleted from cart`);

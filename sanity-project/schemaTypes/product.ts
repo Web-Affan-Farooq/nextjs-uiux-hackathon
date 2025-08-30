@@ -3,7 +3,6 @@ export default {
     type: 'document',
     title: 'Product',
     fields: [
-
         {
             name: "productName",
             type: "string",

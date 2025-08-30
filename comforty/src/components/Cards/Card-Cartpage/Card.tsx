@@ -20,7 +20,7 @@ const Card = ({ image, title, id, description, quantity }: Card) => {
     const [wishList, setWishlist] = useContext(WishlistContext);
 
     const handleRemoveFromCart = (productId: string) => {
-        const requiredIndex = cart.findIndex((product: CartProduct) => product.product._id === productId);
+        const requiredIndex = cart.findIndex((product: CartProduct) => String(product.product.id) === productId);
         cart.splice(requiredIndex, 1);
         setCart([...cart]);
         // console.log(`Product deleted from cart`);
@@ -38,13 +38,13 @@ const Card = ({ image, title, id, description, quantity }: Card) => {
     // },[cart]);
 
     const handleAddToWishlist = (productId: string) => {
-        const requiredProductIndex: number = cart.findIndex((product: CartProduct) => product.product._id === productId);
+        const requiredProductIndex: number = cart.findIndex((product: CartProduct) => String(product.product.id)=== productId);
         cart.splice(requiredProductIndex, 1).forEach((product: CartProduct) => {
             wishList.push(product.product);
             setWishlist([...wishList]);
         })
         // setWishlist([...wishList]);
-        toast.success(`Product ${cart[requiredProductIndex].product.productName} Added To your Wishlist`, {
+        toast.success(`Product ${cart[requiredProductIndex].product.name} Added To your Wishlist`, {
             style: {
                 backgroundColor: "rgba(255,255,255,0.5)",
                 backdropFilter: "blur(20px)",
